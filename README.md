@@ -1,5 +1,5 @@
-# Useless-Utils
-Useless math utilities
+# Useless Math Package
+I mean.. Do you really need this soon to be multi mathemetically functioning package? (if that even makes sense)
 
 ## Installation
 

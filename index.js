@@ -36,5 +36,5 @@ function primeFactorization(num) {
 	return primeFactors;
 }
 
-console.log(primeFactorization(50))
+console.log(primeFactorization(654))
 

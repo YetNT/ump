@@ -3,6 +3,7 @@ const nextPrime = (n) =>  {
 	while (!isPrime(prime)) {
 		prime++;
 	}
+	return prime;
 }
 
 const isPrime = (n) =>  {

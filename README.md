@@ -23,7 +23,7 @@ Ump.primeFactorization(3) // [3]
 
 ### Ratio(s)
 
-```
+```js
 const Ump = require()
 
 Ump.DinRatio(500, 3, 2) //still writing this

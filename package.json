@@ -1,0 +1,24 @@
+{
+  "name": "@username/ump",
+  "version": "1.0.0",
+  "description": "A very useless math package for javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yetity/ump.git"
+  },
+  "keywords": [
+    "javascript",
+    "useless",
+    "math"
+  ],
+  "author": "YetNT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yetity/ump/issues"
+  },
+  "homepage": "https://github.com/Yetity/ump#readme"
+}

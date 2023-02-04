@@ -46,7 +46,7 @@ function primeFactorization(num, concFactors) {
 	}
 }
 
-console.log(primeFactorization(654))
-console.log(primeFactorization(50))
-console.log(primeFactorization(540))
+console.log(primeFactorization(3))
+console.log(primeFactorization(9))
+console.log(primeFactorization(93928893))
 

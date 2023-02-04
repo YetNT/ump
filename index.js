@@ -9,6 +9,7 @@
  * q + w = x
  */
 const pf = require('./libmath/primeFactorization.js')
+const cf = require('./libmath/concentrateFactors.js')
 
 
 function DinRatio(x, y, z) {
@@ -23,7 +24,7 @@ function DinRatio(x, y, z) {
 	return ans
 }
 
-function primeFactorization(num) {
+function primeFactorization(num, concFactors) {
 	let primeFactors = [];
 	let prime = 2;
 	while (num > 1) {
@@ -33,8 +34,19 @@ function primeFactorization(num) {
 		}
 		prime = pf.nextPrime(prime);
 	}
-	return primeFactors;
+
+	if ( concFactors === false ) {
+		return primeFactors
+	} else if ( concFactors === true ) {
+		return cf.concFact(primeFactors)
+	} else if ( concFactors === undefined )  {
+		return primeFactors
+	} else {
+		console.error("wtf")
+	}
 }
 
 console.log(primeFactorization(654))
+console.log(primeFactorization(50))
+console.log(primeFactorization(540))
 

@@ -55,7 +55,7 @@ y : z
 [Github](https://github.com/Yetity/ump/releases)
 * [1.0.0]
 * [1.0.1]
-* [1.2.0]
+* [1.1.0]
 
 ## Links
 ### Places you can find this package

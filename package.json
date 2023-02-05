@@ -1,6 +1,6 @@
 {
-  "name": "@username/ump",
-  "version": "1.0.0",
+  "name": "@yetnt/ump",
+  "version": "1.0.1",
   "description": "A very useless math package for javascript",
   "main": "index.js",
   "scripts": {

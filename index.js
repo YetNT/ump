@@ -12,7 +12,7 @@ const pf = require('./libmath/primeFactorization.js')
 const cf = require('./libmath/concentrateFactors.js')
 
 
-function DinRatio(x, y, z) {
+const DinRatio = (x, y, z) =>  {
 	var a = parseFloat(y) + parseFloat(z)
 	var ans = []
 
@@ -24,7 +24,24 @@ function DinRatio(x, y, z) {
 	return ans
 }
 
-function primeFactorization(num, concFactors) {
+const PropRatio = (x, y, z, which) => {
+	// if which == false
+	//
+	// x : y
+	// ? : z
+	// ----------------
+	// if which == true
+	//
+	// x : y
+	// z : ?
+	
+	if ( which === true ) {
+		var mult = parseFloar(z) / parseFloat(x)
+		var ans = parseFloat(y) * parseFloat(mult)
+	}
+}
+
+const primeFactorize = (num, concFactors) => {
 	let primeFactors = [];
 	let prime = 2;
 	while (num > 1) {
@@ -46,7 +63,5 @@ function primeFactorization(num, concFactors) {
 	}
 }
 
-console.log(primeFactorization(3))
-console.log(primeFactorization(9) //)
-console.log(primeFactorization(93928893))
+module.exports = {DinRatio, PropRatio, PrimeFactorize}
 

@@ -41,7 +41,7 @@ const PropRatio = (x, y, z, which) => {
 	}
 }
 
-const primeFactorize = (num, concFactors) => {
+const PrimeFactorize = (num, concFactors) => {
 	let primeFactors = [];
 	let prime = 2;
 	while (num > 1) {

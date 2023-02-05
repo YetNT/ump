@@ -10,7 +10,6 @@
  */
 const pf = require('./libmath/primeFactorization.js')
 const cf = require('./libmath/concentrateFactors.js')
-const floating =  require('./libmath/floats.js')
 
 const DinRatio = (x, y, z) =>  {
 	var a = parseFloat(y) + parseFloat(z)

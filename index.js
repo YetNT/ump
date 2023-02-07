@@ -59,6 +59,7 @@ const PropRatio = (x, y, z, which) => {
 const PrimeFactorize = (num, concFactors) => {
 	let primeFactors = [];
 	let prime = 2;
+
 	while (num > 1) {
 		while (num % prime === 0) {
 			primeFactors.push(prime);
@@ -74,9 +75,13 @@ const PrimeFactorize = (num, concFactors) => {
 	} else if ( concFactors === undefined )  {
 		return primeFactors
 	} else {
-		console.error("wtf")
+		console.error("wtf, last parameter is not a boolean")
 	}
 }
 
-module.exports = {DinRatio, PropRatio, PrimeFactorize}
+const ConvDist = (input, ext, toExt) => {
+	return null
+}
+
+module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvDist}
 

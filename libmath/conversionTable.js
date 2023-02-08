@@ -22,7 +22,7 @@ const toNM = (n, ext) => {
 		case "m":
 		case "meter":
 		case "metre":
-			var ans n / 100000000;
+			var ans = n / 100000000;
 			return ans
 			break;
 		case "km":

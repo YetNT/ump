@@ -15,7 +15,7 @@ What can this do?
 ### Prime Factorization
 
 ```js
-const Ump = require'(@yetnt/ump')
+const Ump = require('@yetnt/ump')
 
 Ump.PrimeFactorize(50) // [2, 5, 5]
 Ump.PrimeFactorize(5000) // [2, 2, 2, 5, 5, 5, 5]

@@ -9,7 +9,7 @@
  * q + w = x
  */
 const pf = require('./libmath/primeFactorization.js')
-const cf = require('./libmath/concentrateFactors.js')
+const cf = require('./libmath/concentrateFactors.js');
 
 const DinRatio = (x, y, z) =>  {
 	var a = parseFloat(y) + parseFloat(z)

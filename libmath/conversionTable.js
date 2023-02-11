@@ -148,7 +148,46 @@ const toMM = (n, ext) => {
 			var ans = n / 10;
 			return ans
 			break;
-		
+		case "m":
+		case "meter":
+		case "metre":
+			var ans = n / 1000;
+			return ans
+			break;
+		case "km":
+		case "kilometer":
+		case "kilometre":
+			var ans = n / 1000000;
+			return ans
+			break;
+		case "nmi":
+		case "nautical-mile":
+			var ans = n / 1852000;
+			return ans
+			break;
+		case "″": // inch but it's the real symbol
+		case "inch":
+		case '"':
+			var ans = n / 25.4
+			return parseFloat(ans)
+			break;
+		case "ft":
+		case "foot":
+			var ans = n / 304.8;
+			return parseFloat(ans)
+			break;
+		case "yd":
+		case "yard":
+			var ans = n / 914.4;
+			return parseFloat(ans)
+			break;
+		case "mi":
+		case "mile":
+			var ans = n / 1609000;
+			return ans
+			break;
+		default:
+			return "how did you get this"
 	}
 }
 module.exports = {toNM, toMicroM, toMM}

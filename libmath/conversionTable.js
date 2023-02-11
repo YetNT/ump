@@ -127,4 +127,28 @@ const toMicroM = (n, ext) => {
 
 	}
 }
-module.exports = {toNM, toMicroM}
+
+const toMM = (n, ext) => {
+	switch(ext) {
+		case "nm":
+		case "nanometre":
+		case "nanometer":
+			var ans = n * 1000000;
+			return ans
+			break;
+		case "micrometer":
+		case "micrometre":
+		case "": // special char
+			var ans = n * 1000;
+			return ans
+			break;
+		case "cm":
+		case "centimeter":
+		case "centimetre":
+			var ans = n / 10;
+			return ans
+			break;
+		
+	}
+}
+module.exports = {toNM, toMicroM, toMM}

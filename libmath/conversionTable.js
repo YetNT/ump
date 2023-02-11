@@ -1,4 +1,4 @@
-// See /ump/libmath/def/distance.json
+// See /ump/libmath/def/distance.json.
 const toNM = (n, ext) => {
 	switch(ext){
 		case "mm":

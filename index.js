@@ -11,7 +11,7 @@
 const pf = require('./libmath/primeFactorization.js')
 const cf = require('./libmath/concentrateFactors.js');
 const dist = require('./libmath/def/distance.json')
-import { conversionFactors } from './libmath/convTable.js';
+const { conversionFactors } = require('./libmath/convTable.js');
 
 const DinRatio = (x, y, z) =>  {
 	var a = parseFloat(y) + parseFloat(z)

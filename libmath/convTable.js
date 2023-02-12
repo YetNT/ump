@@ -1,4 +1,4 @@
-export const conversionFactors = {
+const conversionFactors = {
     "nanometer": 0.000001,
     "nanometre": 0.000001,
     "nm" : 0.00001,
@@ -28,4 +28,6 @@ export const conversionFactors = {
     "yd": 914.4,
     "mile": 1609000,
     "mi": 1609000
-  };
+};
+
+module.exports = conversionFactors

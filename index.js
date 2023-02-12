@@ -10,6 +10,8 @@
  */
 const pf = require('./libmath/primeFactorization.js')
 const cf = require('./libmath/concentrateFactors.js');
+const dist = require('./libmath/def/distance.json')
+const convTable = require('./libmath/conversionTable.js')
 
 const DinRatio = (x, y, z) =>  {
 	var a = parseFloat(y) + parseFloat(z)
@@ -80,7 +82,21 @@ const PrimeFactorize = (num, concFactors) => {
 }
 
 const ConvDist = (input, ext, toExt) => {
-	return null
+	var out
+	switch (toExt) {
+		case "nm":
+		case "nanometre":
+		case "nanometer":
+			out = convTable.toNM(input, ext)
+			return out
+			break;
+		case "µ":
+		case "micrometre":
+		case "micrometer":
+			out = convTable.toMicroM(input, ext)
+			return out
+			break;
+	}
 }
 
 module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvDist}

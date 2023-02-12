@@ -62,7 +62,7 @@ const toNM = (n, ext) => {
 		default:
 			return "how did you get this"
 	}
-}
+} // NanoMetre NOT Nautical Miles
 
 const toMicroM = (n, ext) => {
 	switch(ext){
@@ -138,7 +138,7 @@ const toMM = (n, ext) => {
 			break;
 		case "micrometer":
 		case "micrometre":
-		case "": // special char
+		case "µ": // special char
 			var ans = n * 1000;
 			return ans
 			break;
@@ -190,4 +190,27 @@ const toMM = (n, ext) => {
 			return "how did you get this"
 	}
 }
-module.exports = {toNM, toMicroM, toMM}
+
+const toCM = (n, ext) => {
+	switch (ext) {
+		case "nm":
+		case "nanometre":
+		case "nanometer":
+			var ans = n * 10000000;
+			return ans
+			break;
+		case "micrometer":
+		case "micrometre":
+		case "µ": // special char
+			var ans = n * 10000
+			return ans
+			break;
+		case "milimeter":
+		case "milimetre":
+		case "":
+	}
+}
+
+module.exports = {toNM, toMicroM, toMM, toCM}
+// micrometer = µ (u00b5)
+// inch = ″ (u2033)

@@ -5,6 +5,7 @@ I mean.. Do you really need this soon to be multi mathemetically functioning pac
 ```bash
 npm i @yetnt/ump
 ```
+> _It's suggested you don't install from github itself as I'm consistently commiting to the project you'll need to update everyday and because some code breaks because i'm editing it so just get it from npm :+1:_
 ```js
 const Ump = require('@yetnt/ump')
 ```

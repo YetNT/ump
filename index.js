@@ -58,7 +58,7 @@ const PropRatio = (x, y, z, which) => {
 	return ans
 }
 
-const PrimeFactorize = (num, concFactors) => {
+const PrimeFactorize = (num) => {
 	let primeFactors = [];
 	let prime = 2;
 
@@ -69,16 +69,8 @@ const PrimeFactorize = (num, concFactors) => {
 		}
 		prime = pf.nextPrime(prime);
 	}
-
-	if ( concFactors === false ) {
-		return primeFactors
-	} else if ( concFactors === true ) {
-		return cf.concFact(primeFactors)
-	} else if ( concFactors === undefined )  {
-		return primeFactors
-	} else {
-		console.error("wtf, last parameter is not a boolean")
-	}
+	
+	return primeFactors
 }
 
 const ConvDist = (n, fromUnit, toUnit) => {

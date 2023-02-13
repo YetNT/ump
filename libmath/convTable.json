@@ -1,4 +1,4 @@
-const conversionFactors = {
+{
     "nanometer": 0.000001,
     "nanometre": 0.000001,
     "nm" : 0.00001,
@@ -21,13 +21,10 @@ const conversionFactors = {
     "nmi": 1852000,
     "inch": 25.4,
     "″": 25.4,
-    '"': 25.4,
     "foot": 304.8,
     "ft": 304.8,
     "yard": 914.4,
     "yd": 914.4,
     "mile": 1609000,
     "mi": 1609000
-};
-
-module.exports = conversionFactors
+}

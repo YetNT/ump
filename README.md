@@ -48,15 +48,30 @@ z : ?
 
 Ump.PropRatio(2, 6, 12) // 4
 /*
-x : ?
-y : z
+x : y
+? : z
 */
 ```
+
+### Distance
+
+```js
+const Ump = require('@yetnt/ump')
+
+Ump.ConvDist(12, "millimetre", "centimetre") // 2
+Ump.ConvDist(1, "inch", "cm") // 2.54
+Ump.convDist(98, "nautical-mile", "nanometre") // 1852000000000
+```
+[List of available distances and short hands.](https://github.com/Yetity/ump/blob/main/libmath/convTable.json)
+
 ## Releases
 [Github](https://github.com/Yetity/ump/releases)
 * [1.0.0]
 * [1.0.1]
 * [1.1.0]
+* [1.1.1]
+* [1.1.2]
+* [2.0.0]
 
 ## Links
 ### Places you can find this package

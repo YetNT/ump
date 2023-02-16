@@ -78,11 +78,15 @@ Ump.convDist(98, "nautical-mile", "nanometre") // 1852000000000
 * [Github](https://github.com/Yetity/ump)
 * [NPM](https://npmjs.com/package/@yetnt/ump)
 
-### Colaborators
-* YetNT - "This is legit a one manned package." (Javascript)
+### Contributors
+#### Main/Owner/Creator of package
+* YetNT
 	* [Discord](https://discordapp.com/users/671549251024584725)
 	* [Github](https://github.com/Yetity)
 	* [NPM](https://npmjs.com/~yetnt)
 	* [Twitter](https://twitter.com/YetNT1)
 	* [Replit](https://replit.com/@hlonipoole692)
 
+#### others
+* 202291
+	* _Improved PrimeFactorize, by removing feature that does not work._

@@ -9,7 +9,6 @@
  * q + w = x
  */
 const pf = require('./libmath/primeFactorization.js')
-const cf = require('./libmath/concentrateFactors.js');
 const dist = require('./libmath/def/distance.json')
 const conversionFactors = require('./libmath/convTable.json');
 
@@ -82,5 +81,9 @@ const ConvDist = (n, fromUnit, toUnit) => {
   return n * fromFactor / toFactor;
 };
 
-module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvDist}
+const Perc = (new, old, inc-dec) => {
+
+}
+
+module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvDist, Perc}
 

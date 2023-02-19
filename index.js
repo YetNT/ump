@@ -1,6 +1,6 @@
 /* 
  * Dividde x into y : z
- *k
+ *
  * y + z = a
  *
  * (y/a) * x = q
@@ -19,7 +19,7 @@ const DinRatio = (x, y, z) =>  {
 	var q = ( parseFloat(y) / a ) * parseFloat(x)
 	if (  /[.]/.test(q) === true  ) {
 		q = q.toFixed(2)
-		ans.push(q)
+		ans.push(parseInt(q))
 	} else {
 		ans.push(q)
 	}
@@ -27,7 +27,7 @@ const DinRatio = (x, y, z) =>  {
 	var w = ( parseFloat(z) / a ) * parseFloat(x)
 	if ( /[.]/.test(w) === true  ) {
 		w = w.toFixed(2)
-		ans.push(w)
+		ans.push(parseInt(w))
 	} else {
 		ans.push(w)
 	}
@@ -81,9 +81,5 @@ const ConvDist = (n, fromUnit, toUnit) => {
   return n * fromFactor / toFactor;
 };
 
-const Perc = (new, old, inc-dec) => {
-
-}
-
-module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvDist, Perc}
+module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvDist}
 

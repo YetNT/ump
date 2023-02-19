@@ -65,20 +65,18 @@ Ump.convDist(98, "nautical-mile", "nanometre") // 1852000000000
 [List of available distances and short hands.](https://github.com/Yetity/ump/blob/main/libmath/convTable.json)
 
 ## Releases
-[Github](https://github.com/Yetity/ump/releases)
-* [1.0.0]
-* [1.0.1]
-* [1.1.0]
-* [1.1.1]
-* [1.1.2]
-* [2.0.0]
+[Github](https://github.com/Yetity/ump/releases) \
+**[Latest](https://github.com/Yetity/ump/releases/latest)**
+
+> * **[2.0.0](https://github.com/Yetity/ump/releases/tag/v2.0.0)**
+> * **[1.0.0](https://github.com/Yetity/ump/releases/tag/v1.0.0)**
 
 ## Links
 ### Places you can find this package
 * [Github](https://github.com/Yetity/ump)
 * [NPM](https://npmjs.com/package/@yetnt/ump)
 
-### Contributors
+## Contributors
 #### Main/Owner/Creator of package
 * YetNT
 	* [Discord](https://discordapp.com/users/671549251024584725)

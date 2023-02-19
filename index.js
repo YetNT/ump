@@ -19,7 +19,7 @@ const DinRatio = (x, y, z) =>  {
 	var q = ( parseFloat(y) / a ) * parseFloat(x)
 	if (  /[.]/.test(q) === true  ) {
 		q = q.toFixed(2)
-		ans.push(parseInt(q))
+		ans.push(parseFloat(q))
 	} else {
 		ans.push(q)
 	}
@@ -27,7 +27,7 @@ const DinRatio = (x, y, z) =>  {
 	var w = ( parseFloat(z) / a ) * parseFloat(x)
 	if ( /[.]/.test(w) === true  ) {
 		w = w.toFixed(2)
-		ans.push(parseInt(w))
+		ans.push(parseFloat(w))
 	} else {
 		ans.push(w)
 	}

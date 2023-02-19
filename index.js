@@ -1,6 +1,6 @@
 /* 
  * Dividde x into y : z
- *
+ *k
  * y + z = a
  *
  * (y/a) * x = q

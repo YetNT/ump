@@ -8,8 +8,8 @@
  *
  * q + w = x
  */
-const pf = require('./libmath/primeFactorization.js')
-const dist = require('./libmath/def/distance.json')
+const pf = require('./libmath/primeFactorization.js');
+const dist = require('./libmath/def/distance.json');
 const conversionFactors = require('./libmath/convTable.json');
 
 const DinRatio = (x, y, z) =>  {

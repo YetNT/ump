@@ -62,7 +62,7 @@ Ump.ConvDist(12, "millimetre", "centimetre") // 2
 Ump.ConvDist(1, "inch", "cm") // 2.54
 Ump.convDist(98, "nautical-mile", "nanometre") // 1852000000000
 ```
-[List of available distances and short hands.](https://github.com/Yetity/ump/blob/main/libmath/convTable.json)
+[List of available distances and short hands.](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)
 
 ## Releases
 [Github](https://github.com/Yetity/ump/releases) \

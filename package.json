@@ -1,11 +1,11 @@
 {
   "name": "@yetnt/ump",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "A very useless math package for your complex javascript projects",
   "main": "/src/index.js",
   "types": "/src/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/Yetity/ump/issues"
   },
-  "homepage": "https://github.com/Yetity/ump#readme"
+  "homepage": "https://github.com/Yetity/ump#readme",
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
 }

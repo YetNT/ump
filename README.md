@@ -11,7 +11,7 @@ const Ump = require('@yetnt/ump')
 ```
 
 ## Features
-What can this do?
+So far this package can do a lot
 
 ### Prime Factorization
 
@@ -26,7 +26,7 @@ Ump.PrimeFactorize(3) // [3]
 
 ### Ratio(s)
 
-Divide `x` in the ratio of `y`:`z`
+#### Divide `x` in the ratio of `y`:`z`
 ```js
 const Ump = require('@yetnt/ump')
 
@@ -36,7 +36,7 @@ Ump.DinRatio(500, 3, 2) // [300, 200]
 Ump.DinRatio(456.93, 12, 5) // ['322.56', '134.4']
 ```
 
-Direct Proportion
+#### Direct Proportion (equivalent ratios)
 ```js
 const Ump = require('@yetnt/ump')
 
@@ -53,21 +53,35 @@ x : y
 */
 ```
 
-### Distance
+### Conversion
+#### Distance
 
 ```js
 const Ump = require('@yetnt/ump')
 
-Ump.ConvDist(12, "millimetre", "centimetre") // 2
-Ump.ConvDist(1, "inch", "cm") // 2.54
-Ump.convDist(98, "nautical-mile", "nanometre") // 1852000000000
+Ump.ConvUnit("dist", 12, "millimetre", "centimetre") // 1.2
+Ump.ConvUnit("dist", 1, "inch", "cm") // 2.54
+Ump.convUnit("dist", 98, "nautical-mile", "nanometre") // 1852000000000
 ```
-[List of available distances and short hands.](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)
+
+#### Area
+
+```js
+const Ump = require('@yetnt/ump')
+
+Ump.ConvUnit("area", 34, "square-centimetre", "square-inch") // 5.27001054002108
+Ump.ConvUnti("area", 34, "cm2", "inch2") // 5.27001054002108
+Ump.ConvUnti("area", 490, "hectare", "ft2") // 52743183.75079384
+```
+
+[Distance/Area definitons](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)
+[Distance/Area aliases](https://github.com/Yetity/ump/blob/master/src/libmath/def/unit-ali.json)
 
 ## Releases
 [Github](https://github.com/Yetity/ump/releases) \
 **[Latest](https://github.com/Yetity/ump/releases/latest)**
 
+> * **[3.0.0](https://github.com/Yetity/ump/releases/tag/v3.0.0)**
 > * **[2.0.0](https://github.com/Yetity/ump/releases/tag/v2.0.0)**
 > * **[1.0.0](https://github.com/Yetity/ump/releases/tag/v1.0.0)**
 

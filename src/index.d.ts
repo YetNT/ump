@@ -40,13 +40,14 @@ declare function PrimeFactorize(num: number): number[];
 /**
  * Converts a distance value from one unit to another.
  * 
+ * @param {string} unit - The unti to convert between. Currently supports `dist` and `area`
  * @param {number} n - The distance value to be converted.
  * @param {string }fromUnit - The current unit of the distance value.
  * @param {string} toUnit - The unit to which the distance value should be converted.
  * 
  * @returns The distance value in the specified unit.
  */
-declare function ConvDist(n: number, fromUnit: string, toUnit: string): number;
+declare function ConvUnit(unit:string, n: number, fromUnit: string, toUnit: string): number;
 
 
-export = {DinRatio, PropRatio, PrimeFactorize, ConvDist};
+export = {DinRatio, PropRatio, PrimeFactorize, ConvUnit};

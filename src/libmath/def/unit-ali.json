@@ -1,0 +1,50 @@
+{
+	"shortdef" : {
+		"metric" : {
+			"nm" : "nanometre",
+			"µ" : "micrometre",
+			"mm" : "milimetre",
+			"cm" : "centimeter",
+			"m" : "meter",
+			"km" : "kilometre",
+			"cm2" : ["square-centimeter", "square-centimetre", "centimetre-square", "centimeter-square"],
+			"m2" : ["square-meter", "square-metre", "metre-square", "meter-square"],
+			"km2" : ["square-kilometer", "square-kilometre", "kilometre-square", "kilometer-square"],
+			"ha" : "hectare"
+		},
+		"imperial" : {
+			"nmi" : "nautical-mile",
+			"\"" : "inch",
+			"ft" : "foot",
+			"yd" : "yard",
+			"mi" : "mile",
+			"acre" : "acre",
+			"ft2" : ["square-foot", "square-feet", "foot-square", "feet-square"],
+			"in2" : ["square-inch", "inch-square"]
+		}
+	},
+	"namedef" : {
+		"metric" : {
+			"nanometre" : "nm",
+			"micrometre" : "µ",
+			"milimetre" : "mm",
+			"centimeter" : "cm",
+			"meter" : "m",
+			"kilometre" : "km",
+			"square-centimeter": ["cm2", "2cm"],
+			"square-meter": ["m2", "2m"],
+			"square-kilometer": ["km2", "2km"],
+			"hectare": "ha"
+		},
+		"imperial" : {
+			"nautical-mile" : "nmi",
+			"inch" : "\"",
+			"foot" : "ft",
+			"yard" : "yd",
+			"mile" : "mi",
+			"square-foot": ["ft2", "2ft"],
+			"square-inch": ["inch2", "2inch", "in2", "2in"],
+			"acre": "a"
+		}
+	}
+}

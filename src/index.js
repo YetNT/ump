@@ -1,15 +1,4 @@
-/* 
- * Dividde x into y : z
- *
- * y + z = a
- *
- * (y/a) * x = q
- * (z/a) * x = w
- *
- * q + w = x
- */
 const pf = require('./libmath/primeFactorization.js');
-const dist = require('./libmath/def/distance.json');
 const conversionFactors = require('./libmath/convTable.json');
 
 const DinRatio = (x, y, z) =>  {
@@ -72,14 +61,22 @@ const PrimeFactorize = (num) => {
 	return primeFactors
 }
 
-const ConvDist = (n, fromUnit, toUnit) => {
-  const fromFactor = conversionFactors[fromUnit];
-  const toFactor = conversionFactors[toUnit];
-  if (!fromFactor || !toFactor) {
-    return "invalid unit";
-  }
-  return n * fromFactor / toFactor;
-};
+const ConvUnit = (unit, n, fromUnit, toUnit) => {
+	const fromFactor = conversionFactors[fromUnit];
+	const toFactor = conversionFactors[toUnit];
+	const distance = ["nanomatre", "nanometer", "nm", "micrometre", "micrometer", "millimetre", "millimeter", "mm", "centimeter", "centimetre", "cm", "meter", "metre", "m", "kilometre", "kilometre", "km", "nautical-mile", "nmi", "inch", "foot", "ft", "yard", "yd", "mile", "mi"]
+	const area = ["square-centimetre", "square-centimeter", "centimeter-square", "centimetre-square", "cm2", "2cm", "square-foot", "square-feet", "foot-square", "feet-square", "ft2", "2ft", "square-inch", "inch-square", "inch2", "2inch", "in2", "2in", "square-meter", "square-metre", "meter-square", "metre-square", "m2", "2m", "acre", "a", "hectare", "ha"]
+	if (!fromFactor || !toFactor) {
+		return "invalid unit?";
+	}
 
-module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvDist}
+	if (unit !== "dist" && unit !== "area") {
+		return "invalid unit"
+	} else if ( ( unit === "area" && ( distance.includes(fromUnit) || distance.includes(toUnit) ) ) || ( unit === "dist" && ( area.includes(fromUnit) || area.includes(toUnit) ) ) ) {
+		return `unit parameter is not equal to it's units of conversion. ${fromUnit} and ${toUnit}`;
+	} else {
+		return n * fromFactor / toFactor
+	}
+}
+module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvUnit}
 

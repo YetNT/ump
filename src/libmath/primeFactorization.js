@@ -5,7 +5,6 @@ const nextPrime = (n) =>  {
 	}
 	return prime;
 }
-
 const isPrime = (n) =>  {
 	for (let i = 2; i <= Math.sqrt(n); i++) {
 		if (n % i === 0) {
@@ -14,5 +13,4 @@ const isPrime = (n) =>  {
 	}
 	return true;
 }
-
 module.exports = {nextPrime, isPrime}

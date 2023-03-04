@@ -13,5 +13,9 @@ test('Divides x by z, and multiplies that by y. (x=2. y=4, 6=z) (which? = true) 
 })
 
 test('Converts 1 nautical-mile to nanometre, = 1852000000000', () => {
-	expect(i.ConvDist(1, "nautical-mile", "nanometre")).toStrictEqual(1852000000000)
+	expect(i.ConvUnit("dist", 1, "nautical-mile", "nanometre")).toStrictEqual(1852000000000)
+})
+
+test('Converts 1 square-centimre to square-inch, = 0.155', () => {
+	expect(i.ConvUnit("area", 1, "square-centimetre", "square-inch")).toStrictEqual(0.15500031000062)
 })

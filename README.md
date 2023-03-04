@@ -70,7 +70,7 @@ const Ump = require('@yetnt/ump')
 
 Ump.ConvUnit("area", 34, "square-centimetre", "square-inch") // 5.27001054002108
 Ump.ConvUnit("area", 34, "cm2", "inch2") // 5.27001054002108
-Ump.ConvUnit()"area", 490, "hectare", "ft2") // 52743183.75079384
+Ump.ConvUnit("area", 490, "hectare", "ft2") // 52743183.75079384
 ```
 
 [Distance/Area definitons](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)

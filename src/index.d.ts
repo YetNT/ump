@@ -4,10 +4,11 @@
  * @param {number} x - The value to be divided.
  * @param {number} y - The ratio value for `y`.
  * @param {number} z - The ratio value for `z`.
+ * @param {boolean=} round - If set to true, will round of the value to 2 decimal places.
  * 
  * @returns An array containing two elements, the result of dividing `x` into `y` and the result of dividing `x` into `z`.
  */
-declare function DinRatio(x: number, y: number, z: number): number[];
+declare function DinRatio(x: number, y: number, z: number, round?: boolean): number[];
 
 /**
  * Calculates the proportional value of `x`, `y`, and `z` in a ratio.
@@ -15,7 +16,7 @@ declare function DinRatio(x: number, y: number, z: number): number[];
  * @param {number} x - The first value in the ratio.
  * @param {number} y - The second value in the ratio.
  * @param {number} z - The third value in the ratio.
- * @param {boolean=} which - If set to `true`, calculates the proportional value of `z`. Otherwise, calculates the proportional value of an unknown value represented by `?`.
+ * @param {boolean=} which - If set to `true`, x : y = z : ?. Otherwise, x : y = ? : z
  * 
  * @returns The proportional value of `x`, `y`, and `z`.
  * 
@@ -43,7 +44,7 @@ declare function PrimeFactorize(num: number): number[];
  * @param {string} unit - The unti to convert between. Currently supports `dist` and `area`
  * @param {number} n - The distance value to be converted.
  * @param {string }fromUnit - The current unit of the distance value.
- * @param {string} toUnit - The unit to which the distance value should be converted.
+ * @param {string} toUnit - The unit to which the (area/distance) value should be converted.
  * 
  * @returns The distance value in the specified unit.
  */

@@ -82,9 +82,9 @@ Ump.ConvUnit("vol", 34, "cm3", "inch3") // 2.0748027411805627
 Ump.ConvUnit("vol", 490, "quart", "litre") // 463.71297
 ```
 
-[Distance/Area definitons](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)
+[Distance/Area/Volume definitons](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)
 
-[Distance/Area aliases](https://github.com/Yetity/ump/blob/master/src/libmath/def/unit-ali.json)
+[Distance/Area/Volume aliases](https://github.com/Yetity/ump/blob/master/src/libmath/def/unit-ali.json)
 
 ## Releases
 [Github](https://github.com/Yetity/ump/releases) \

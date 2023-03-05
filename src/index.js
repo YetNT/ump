@@ -68,11 +68,11 @@ const ConvUnit = (unit, n, fromUnit, toUnit) => {
 	const area = ["square-centimetre", "square-centimeter", "centimeter-square", "centimetre-square", "cm2", "2cm", "square-foot", "square-feet", "foot-square", "feet-square", "ft2", "2ft", "square-inch", "inch-square", "inch2", "2inch", "in2", "2in", "square-meter", "square-metre", "meter-square", "metre-square", "m2", "2m", "acre", "a", "hectare", "ha"]
 	const volume = ["milliliter", "millilitre", "ml", "centilitre", "centiiter", "cl", "deciliter", "decilitre", "dl", "liter", "litre", "l", "kiloliter", "kilolitre", "kl", "decalitre", "decaliter", "dal", "hectoliter", "hectolitre", "hl", "cubic-millimeter", "cubic-millimetre", "3mm", "mm3", "cubic-centimetre", "cubic-centimeter", "3cm", "cm3", "cubic-meter", "cubic-metre", "m3", "3m", "cubic-inch", "3in", "in3", "3inch", "inch3", "fluid-ounce", "floz", "gill", "pint", "pt", "quart", "qt", "gallon", "gl"]
 	if (!fromFactor || !toFactor) {
-		return "invalid unit?";
+		return `invalid from/to Unit, ${fromUnit} or ${toUnit} is not a valid unit.`;
 	}
 
 	if (unit !== "dist" && unit !== "area" && unit !== "vol") {
-		return "invalid unit"
+		return "invalid unit. unit must be either 'dist', 'area' or 'vol'"
 	} else if ( ( unit === "area" && ( !area.includes(fromUnit) || !area.includes(toUnit) ) ) || ( unit === "dist" && ( !distance.includes(fromUnit) || !distance.includes(toUnit) ) ) || (unit === "vol" && ( !volume.includes(fromUnit) || !volume.includes(toUnit)  ) )  ) {
 		return `unit parameter is not equal to it's units of conversion. ${fromUnit} and ${toUnit}`;
 	} else {

@@ -73,6 +73,15 @@ Ump.ConvUnit("area", 34, "cm2", "inch2") // 5.27001054002108
 Ump.ConvUnit("area", 490, "hectare", "ft2") // 52743183.75079384
 ```
 
+#### Volume
+```js
+const Ump = require('@yetnt/ump')
+
+Ump.ConvUnit("vol", 34, "cubic-centimetre", "cubic-inch") // 2.0748027411805627
+Ump.ConvUnit("vol", 34, "cm3", "inch3") // 2.0748027411805627
+Ump.ConvUnit("vol", 490, "quart", "litre") // 463.71297
+```
+
 [Distance/Area definitons](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)
 
 [Distance/Area aliases](https://github.com/Yetity/ump/blob/master/src/libmath/def/unit-ali.json)

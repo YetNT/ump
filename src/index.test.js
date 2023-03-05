@@ -19,3 +19,7 @@ test('Converts 1 nautical-mile to nanometre, = 1852000000000', () => {
 test('Converts 1 square-centimre to square-inch, = 0.155', () => {
 	expect(i.ConvUnit("area", 1, "square-centimetre", "square-inch")).toStrictEqual(0.15500031000062)
 })
+
+test("Converts 1 cubic metre to cubic centimetre, = 1000000", () => {
+	expect(i.ConvUnit("vol", 1, "m3", "cm3")).toStrictEqual(1000000)
+})

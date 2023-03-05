@@ -1,50 +1,105 @@
 {
-	"shortdef" : {
-		"metric" : {
-			"nm" : "nanometre",
-			"µ" : "micrometre",
-			"mm" : "milimetre",
-			"cm" : "centimeter",
-			"m" : "meter",
-			"km" : "kilometre",
-			"cm2" : ["square-centimeter", "square-centimetre", "centimetre-square", "centimeter-square"],
-			"m2" : ["square-meter", "square-metre", "metre-square", "meter-square"],
-			"km2" : ["square-kilometer", "square-kilometre", "kilometre-square", "kilometer-square"],
-			"ha" : "hectare"
+	"namedef": {
+	  "metric": {
+		"distance": {
+		  "nm": "nanometre",
+		  "µ": "micrometre",
+		  "mm": "milimetre",
+		  "cm": "centimeter",
+		  "m": "meter",
+		  "km": "kilometre"
 		},
-		"imperial" : {
-			"nmi" : "nautical-mile",
-			"\"" : "inch",
-			"ft" : "foot",
-			"yd" : "yard",
-			"mi" : "mile",
-			"acre" : "acre",
-			"ft2" : ["square-foot", "square-feet", "foot-square", "feet-square"],
-			"in2" : ["square-inch", "inch-square"]
+		"area": {
+		  "cm2": ["square-centimeter", "square-centimetre", "centimetre-square", "centimeter-square"],
+		  "m2": ["square-meter", "square-metre", "metre-square", "meter-square"],
+		  "km2": ["square-kilometer", "square-kilometre", "kilometre-square", "kilometer-square"],
+		  "ha": "hectare"
+		},
+		"volume" : {
+			"milliliter":"ml",
+			"centiliter": "cl",
+			"deciliter":"dl",
+			"liter":"l",
+			"kiloliter":"kl",
+			"decaliter":"dal",
+			"hectoliter": "hl",
+			"cubic-millimeter":["mm3", "3mm"],
+			"cubic-centimeter":["cm3","3cm"],
+			"cubic-meter": ["m3", "3m"]
 		}
+	  },
+	  "imperial": {
+		"distance": {
+		  "nmi": "nautical-mile",
+		  "\"": "inch",
+		  "ft": "foot",
+		  "yd": "yard",
+		  "mi": "mile"
+		},
+		"area": {
+		  "acre": "acre",
+		  "ft2": ["square-foot", "square-feet", "foot-square", "feet-square"],
+		  "in2": ["square-inch", "inch-square"]
+		},
+		"volume": {
+            "cubic-inch": ["in3","3in"],
+            "fluid-ounce": "floz",
+            "gill": "gill",
+            "pint": "pt",
+            "quart": "qt",
+            "gallon": "gal"
+        }
+	  }
 	},
-	"namedef" : {
-		"metric" : {
-			"nanometre" : "nm",
-			"micrometre" : "µ",
-			"milimetre" : "mm",
-			"centimeter" : "cm",
-			"meter" : "m",
-			"kilometre" : "km",
-			"square-centimeter": ["cm2", "2cm"],
-			"square-meter": ["m2", "2m"],
-			"square-kilometer": ["km2", "2km"],
-			"hectare": "ha"
+	"shortdef": {
+	  "metric": {
+		"distance": {
+		  "nm": "nanometre",
+		  "µ": "micrometre",
+		  "mm": "milimetre",
+		  "cm": "centimeter",
+		  "m": "meter",
+		  "km": "kilometre"
 		},
-		"imperial" : {
-			"nautical-mile" : "nmi",
-			"inch" : "\"",
-			"foot" : "ft",
-			"yard" : "yd",
-			"mile" : "mi",
-			"square-foot": ["ft2", "2ft"],
-			"square-inch": ["inch2", "2inch", "in2", "2in"],
-			"acre": "a"
-		}
+		"area": {
+		  "cm2": ["square-centimeter", "square-centimetre", "centimetre-square", "centimeter-square"],
+		  "m2": ["square-meter", "square-metre", "metre-square", "meter-square"],
+		  "km2": ["square-kilometer", "square-kilometre", "kilometre-square", "kilometer-square"],
+		  "ha": "hectare"
+		},
+		"volume": {
+            "mm3": ["cubic-millimeter", "cubic-millimetre"],
+            "cm3": ["cubic-centimeter", "cubic-centimetre"],
+            "ml": ["milliliter", "millilitre"],
+            "cl": ["centiliter", "centilitre"],
+            "dl": ["deciliter", "decilitre"],
+			"dal": ["decaliter", "decalitre"],
+            "l": ["liter", "litre"],
+            "kl": ["kiloliter", "kilolitre"]
+        }
+	  },
+	  "imperial": {
+		"distance": {
+		  "nmi": "nautical-mile",
+		  "\"": "inch",
+		  "ft": "foot",
+		  "yd": "yard",
+		  "mi": "mile"
+		},
+		"area": {
+		  "acre": "acre",
+		  "ft2": ["square-foot", "square-feet", "foot-square", "feet-square"],
+		  "in2": ["square-inch", "inch-square"]
+		},
+		"volume":{
+            "in3": "cubic-inch",
+            "floz": "fluid-ounce",
+            "gill": "gill",
+            "pt": "pint",
+            "qt": "quart",
+            "gal": "gallon"
+        }
+	  }
 	}
-}
+  }
+  

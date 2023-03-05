@@ -41,10 +41,10 @@ declare function PrimeFactorize(num: number): number[];
 /**
  * Converts a distance value from one unit to another.
  * 
- * @param {string} unit - The unti to convert between. Currently supports `dist` and `area`
+ * @param {string} unit - The unit to convert between. Currently supports `dist`, `area` and `vol`
  * @param {number} n - The distance value to be converted.
- * @param {string }fromUnit - The current unit of the distance value.
- * @param {string} toUnit - The unit to which the (area/distance) value should be converted.
+ * @param {string} fromUnit - The current unit of the (area/distance/volume) value. (Make sure the unit is equal to the unit of measurement in the `unit` parameter. List of valid units https://github.com/Yetity/ump/blob/master/src/libmath/def/unit-ali.json ) 
+ * @param {string} toUnit - The unit to which the (area/distance/volume) value should be converted. (Make sure the unit is equal to the unit of measurement in the `unit` parameter. List of valid units https://github.com/Yetity/ump/blob/master/src/libmath/def/unit-ali.json )
  * 
  * @returns The distance value in the specified unit.
  */

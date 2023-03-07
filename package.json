@@ -24,7 +24,10 @@
     "factors",
     "simple",
     "distance",
-    "area"
+    "area",
+    "volume",
+    "metric",
+    "imperial"
   ],
   "author": "YetNT",
   "license": "ISC",

@@ -32,7 +32,7 @@ const Ump = require('@yetnt/ump')
 
 Ump.DinRatio(500, 3, 2) // [300, 200]
 Ump.DinRatio(456.93, 12, 5) // [ 322.5388235294118, 134.39117647058825 ]
-Ump.DinRatio(456.93, 12, 5, true) // ['322.56', '134.4']
+Ump.DinRatio(456.93, 12, 5, true) // ['322.54', '134.39']
 ```
 
 #### Direct Proportion (equivalent ratios)
@@ -95,7 +95,6 @@ Ump.ConvUnit("vol", 490, "quart", "litre") // 463.71297
 > * **[1.0.0](https://github.com/Yetity/ump/releases/tag/v1.0.0)**
 
 ## Links
-### Places you can find this package
 * [Github](https://github.com/Yetity/ump)
 * [NPM](https://npmjs.com/package/@yetnt/ump)
 

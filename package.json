@@ -1,11 +1,11 @@
 {
   "name": "@yetnt/ump",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "A very useless math package for your complex javascript projects",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "mocha ./src/index.test.js"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/Yetity/ump#readme",
   "devDependencies": {
-    "jest": "^29.4.3"
+    "expect.js": "^0.3.1",
+    "mocha": "^10.2.0"
   }
 }

@@ -50,5 +50,16 @@ declare function PrimeFactorize(num: number): number[];
  */
 declare function ConvUnit(unit:string, n: number, fromUnit: string, toUnit: string): number;
 
+/**
+ * Converts between Temperature units
+ *
+ * @param {number} n - THe value to be converted
+ * @param {string} from - The current temperature unit. Param accepts these string forms - `["celsius", "Celsius", "c", "C"]` 
+ * @param {string} to - The temperature unit to be converted to. Param accepts these strings - `["Kelvin", "kelvin", "k", "K"]` 
+ *
+ * @returns Converted Temperature
+ */
+declare function ConvTemp(n: number, from: string, to:string): number;
 
-export = {DinRatio, PropRatio, PrimeFactorize, ConvUnit};
+
+export = {DinRatio, PropRatio, PrimeFactorize, ConvUnit, ConTemp};

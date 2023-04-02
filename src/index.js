@@ -79,5 +79,60 @@ const ConvUnit = (unit, n, fromUnit, toUnit) => {
 		return n * fromFactor / toFactor
 	}
 }
-module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvUnit}
+
+const ConvTemp = (n, from, to) => {
+	const units = ["K", "F", "C", "Kelvin", "Fahrenheit", "Celsius", "kelvin", "celsius", "fahrenheit", "k", "f", "c"]
+	if ( !units.includes(from) || !units.includes(to) ) {
+		console.log("error")
+	}
+
+	if (from === "K" || from === "Kelvin" || from === "kelvin" || from === "k") {
+		switch(to) {
+			case "Celsius":
+			case "celsius":
+			case "C":
+			case "c":
+				return n - 273.15
+				break;
+			case "Fahrenheit":
+			case "fahrenheit":
+			case "F":
+			case "f":
+				return (n - 273.15) * 9/5 + 32
+				break;
+		}
+	} else if (from === "C" || from === "Celsius" || from === "celsius" || from === "c") {
+		switch(to) {
+			case "Kelvin":
+			case "kelvin":
+			case "K":
+			case "k":
+				return n + 273.15
+				break;
+			case "Fahrenheit":
+			case "fahrenheit":
+			case "F":
+			case "f":
+				return (n * 9/5) + 32
+				break;
+		}
+	} else if ( from === "Fahrenheit" || from === "fahrenheit" || from === "F" || from === "f") {
+		switch(to) {
+			case "Celsius":
+			case "celsius":
+			case "C":
+			case "c":
+				return (n - 32) * 5/9
+				break;
+			case "Kelvin":
+			case "kelvin":
+			case "K":
+			case "k":
+				return (n - 32) * 5/9 + 273.15
+				break;
+		}
+	}
+}
+
+module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvUnit, ConvTemp}
 

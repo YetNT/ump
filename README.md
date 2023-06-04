@@ -59,33 +59,35 @@ x : y
 ```
 
 ### Conversion
+#### Pre-read
+Usage of strings for the the shorthand units are soon to be depracated. Use the `Unit Enums` instead.
 #### Distance
 
 ```js
-const { ConvUnit } = require('@yetnt/ump')
+const { ConvUnit, Distance } = require('@yetnt/ump')
 
-ConvUnit("dist", 12, "millimetre", "centimetre") // 1.2
-ConvUnit("dist", 1, "inch", "cm") // 2.54
-ConvUnit("dist", 98, "nautical-mile", "nanometre") // 1852000000000
+ConvUnit("dist", 12, Distance.Millimeter, Distance.Centimetre) // 1.2
+ConvUnit("dist", 1, Distance.Inch, Distance.Centimeter) // 2.54
+ConvUnit("dist", 98, Distance.NauticalMile, Distance.Nanometer) // 1852000000000
 ```
 
 #### Area
 
 ```js
-const { ConvUnit } = require('@yetnt/ump')
+const { ConvUnit, Area } = require('@yetnt/ump')
 
-ConvUnit("area", 34, "square-centimetre", "square-inch") // 5.27001054002108
+ConvUnit("area", 34, Area.SquareCentimetre, Area.SquareInch) // 5.27001054002108
 ConvUnit("area", 34, "cm2", "inch2") // 5.27001054002108
-ConvUnit("area", 490, "hectare", "ft2") // 52743183.75079384
+ConvUnit("area", 490, Area.Hectare, Area.SquareFoot) // 52743183.75079384
 ```
 
 #### Volume
 ```js
-const { ConvUnit } = require('@yetnt/ump')
+const { ConvUnit, Volume } = require('@yetnt/ump')
 
-ConvUnit("vol", 34, "cubic-centimetre", "cubic-inch") // 2.0748027411805627
+ConvUnit("vol", 34, Volume.CubicCentimeter, Volume.CubicInch) // 2.0748027411805627
 ConvUnit("vol", 34, "cm3", "inch3") // 2.0748027411805627
-ConvUnit("vol", 490, "quart", "litre") // 463.71297
+ConvUnit("vol", 490, Volume.Quart, Volume.Liter) // 463.71297
 ```
 
 [Distance/Area/Volume definitons](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)
@@ -96,6 +98,7 @@ ConvUnit("vol", 490, "quart", "litre") // 463.71297
 [Github](https://github.com/Yetity/ump/releases) \
 **[Latest](https://github.com/Yetity/ump/releases/latest)**
 
+> * **[4.0.0](https://github.com/Yetity/ump/releases/tag/v3.0.0)**
 > * **[3.0.0](https://github.com/Yetity/ump/releases/tag/v3.0.0)**
 > * **[2.0.0](https://github.com/Yetity/ump/releases/tag/v2.0.0)**
 > * **[1.0.0](https://github.com/Yetity/ump/releases/tag/v1.0.0)**

@@ -90,9 +90,7 @@ ConvUnit("vol", 34, "cm3", "inch3") // 2.0748027411805627
 ConvUnit("vol", 490, Volume.Quart, Volume.Liter) // 463.71297
 ```
 
-[Distance/Area/Volume definitons](https://github.com/Yetity/ump/blob/main/src/libmath/convTable.json)
-
-[Distance/Area/Volume aliases](https://github.com/Yetity/ump/blob/master/src/libmath/def/unit-ali.json)
+[Distance/Area/Volume definitons](https://github.com/Yetity/ump/blob/main/src/libmath/Units.js)
 
 ## Releases
 [Github](https://github.com/Yetity/ump/releases) \

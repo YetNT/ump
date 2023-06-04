@@ -1,7 +1,7 @@
 {
     "nanometre": 0.000001,
     "nm" : 0.00001,
-    "micrometer": 0.001
+    "micrometer": 0.001,
     "µ" : 0.001,
     "millimeter": 1,
     "mm" : 1,

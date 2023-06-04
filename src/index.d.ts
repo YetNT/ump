@@ -20,6 +20,7 @@ declare function DinRatio(x: number, y: number, z: number, round?: boolean): num
  * 
  * @returns The proportional value of `x`, `y`, and `z`.
  * 
+ * 
  *```ts
  *console.log(Ump.PropRatio(4, 2, 1, false)) // 2
  *```
@@ -48,7 +49,7 @@ declare function PrimeFactorize(num: number): number[];
  * 
  * @returns The distance value in the specified unit.
  */
-declare function ConvUnit(unit:string, n: number, fromUnit: string, toUnit: string): number;
+declare function ConvUnit(unit: string, n: number, fromUnit: string, toUnit: string): number;
 
 /**
  * Converts between Temperature units
@@ -59,7 +60,7 @@ declare function ConvUnit(unit:string, n: number, fromUnit: string, toUnit: stri
  *
  * @returns Converted Temperature
  */
-declare function ConvTemp(n: number, from: string, to:string): number;
+declare function ConvTemp(n: number, from: string, to: string): number;
 
 
-export = {DinRatio, PropRatio, PrimeFactorize, ConvUnit, ConTemp};
+export = {DinRatio, PropRatio, PrimeFactorize, ConvUnit, ConvTemp};

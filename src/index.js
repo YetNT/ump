@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const pf = require('./libmath/primeFactorization.js');
 const conversionFactors = require('./libmath/convTable.json');
 
@@ -34,13 +35,14 @@ const PropRatio = (x, y, z, which) => {
 	//
 	// x : y
 	// z : ?
+	let ans; let mult
 	
 	if ( which === true ) {
-		var mult = parseFloat(z) / parseFloat(x)
-		var ans = parseFloat(y) * parseFloat(mult)
+		mult = parseFloat(z) / parseFloat(x)
+		ans = parseFloat(y) * parseFloat(mult)
 	} else if ( which === false || which === undefined || which === null ) {
-		var mult = parseFloat(y) / parseFloat(z)
-		var ans = parseFloat(x) / parseFloat(mult)
+		mult = parseFloat(y) / parseFloat(z)
+		ans = parseFloat(x) / parseFloat(mult)
 	}
 
 	return ans
@@ -92,14 +94,12 @@ const ConvTemp = (n, from, to) => {
 			case "celsius":
 			case "C":
 			case "c":
-				return n - 273.15
-				break;
+				return n - 273.15 // Kelvin to Celcuis
 			case "Fahrenheit":
 			case "fahrenheit":
 			case "F":
 			case "f":
-				return (n - 273.15) * 9/5 + 32
-				break;
+				return (n - 273.15) * 9/5 + 32 // Kelvin to Fahrenheit
 		}
 	} else if (from === "C" || from === "Celsius" || from === "celsius" || from === "c") {
 		switch(to) {
@@ -107,14 +107,12 @@ const ConvTemp = (n, from, to) => {
 			case "kelvin":
 			case "K":
 			case "k":
-				return n + 273.15
-				break;
+				return n + 273.15 // Celsius to Kelvin
 			case "Fahrenheit":
 			case "fahrenheit":
 			case "F":
 			case "f":
-				return (n * 9/5) + 32
-				break;
+				return (n * 9/5) + 32 // Celsius to Fahrenheit
 		}
 	} else if ( from === "Fahrenheit" || from === "fahrenheit" || from === "F" || from === "f") {
 		switch(to) {
@@ -122,14 +120,12 @@ const ConvTemp = (n, from, to) => {
 			case "celsius":
 			case "C":
 			case "c":
-				return (n - 32) * 5/9
-				break;
+				return (n - 32) * 5/9 // Fahrenheit to Celsius
 			case "Kelvin":
 			case "kelvin":
 			case "K":
 			case "k":
-				return (n - 32) * 5/9 + 273.15
-				break;
+				return (n - 32) * 5/9 + 273.15 // Fahrenheit to Kelvin
 		}
 	}
 }

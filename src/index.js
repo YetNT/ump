@@ -67,9 +67,9 @@ const PrimeFactorize = (num) => {
 const ConvUnit = (unit, n, fromUnit, toUnit) => {
 	const fromFactor = conversionFactors[fromUnit];
 	const toFactor = conversionFactors[toUnit];
-	const distance = ["nanometre", "nanometer", "nm", "micrometre", "micrometer", "millimetre", "millimeter", "mm", "centimeter", "centimetre", "cm", "meter", "metre", "m", "kilometer", "kilometre", "km", "nautical-mile", "nmi", "inch", "foot", "ft", "yard", "yd", "mile", "mi"]
-	const area = ["square-centimetre", "square-centimeter", "centimeter-square", "centimetre-square", "cm2", "2cm", "square-foot", "square-feet", "foot-square", "feet-square", "ft2", "2ft", "square-inch", "inch-square", "inch2", "2inch", "in2", "2in", "square-meter", "square-metre", "meter-square", "metre-square", "m2", "2m", "acre", "a", "hectare", "ha"]
-	const volume = ["milliliter", "millilitre", "ml", "centilitre", "centiiter", "cl", "deciliter", "decilitre", "dl", "liter", "litre", "l", "kiloliter", "kilolitre", "kl", "decalitre", "decaliter", "dal", "hectoliter", "hectolitre", "hl", "cubic-millimeter", "cubic-millimetre", "3mm", "mm3", "cubic-centimetre", "cubic-centimeter", "3cm", "cm3", "cubic-meter", "cubic-metre", "m3", "3m", "cubic-inch", "3in", "in3", "3inch", "inch3", "fluid-ounce", "floz", "gill", "pint", "pt", "quart", "qt", "gallon", "gl"]
+	const distance = ["nanometer", "nm", "micrometer", "millimeter", "mm", "centimeter", "cm", "meter", "m", "kilometer", "km", "nautical-mile", "nmi", "inch", "foot", "ft", "yard", "yd", "mile", "mi"]
+	const area = ["square-centimeter", "cm2", "square-foot", "ft2", "square-inch", "2inch", "2in", "square-meter", "2m", "acre", "hectare"]
+	const volume = ["milliliter", "ml", "centiiter", "cl", "deciliter", "dl", "liter",  "l", "kiloliter", "kl", "decaliter", "dal", "hectoliter",, "hl", "cubic-millimeter", "3mm", "cubic-centimeter", "3cm", "cubic-meter","3m", "cubic-inch", "3inch", "fluid-ounce", "floz", "gill", "pint", "quart", "gallon"]
 	if (!fromFactor || !toFactor) {
 		return `invalid from/to Unit, ${fromUnit} or ${toUnit} is not a valid unit.`;
 	}

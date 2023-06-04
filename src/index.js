@@ -69,7 +69,7 @@ const ConvUnit = (unit, n, fromUnit, toUnit) => {
 	const toFactor = conversionFactors[toUnit];
 	const distance = ["nanometer", "nm", "micrometer", "millimeter", "mm", "centimeter", "cm", "meter", "m", "kilometer", "km", "nautical-mile", "nmi", "inch", "foot", "ft", "yard", "yd", "mile", "mi"]
 	const area = ["square-centimeter", "cm2", "square-foot", "ft2", "square-inch", "2inch", "2in", "square-meter", "2m", "acre", "hectare"]
-	const volume = ["milliliter", "ml", "centiiter", "cl", "deciliter", "dl", "liter",  "l", "kiloliter", "kl", "decaliter", "dal", "hectoliter",, "hl", "cubic-millimeter", "3mm", "cubic-centimeter", "3cm", "cubic-meter","3m", "cubic-inch", "3inch", "fluid-ounce", "floz", "gill", "pint", "quart", "gallon"]
+	const volume = ["milliliter", "ml", "centiliter", "cl", "deciliter", "dl", "liter",  "l", "kiloliter", "kl", "decaliter", "dal", "hectoliter",, "hl", "cubic-millimeter", "3mm", "cubic-centimeter", "3cm", "cubic-meter","3m", "cubic-inch", "3inch", "fluid-ounce", "floz", "gill", "pint", "quart", "gallon"]
 	if (!fromFactor || !toFactor) {
 		return `invalid from/to Unit, ${fromUnit} or ${toUnit} is not a valid unit.`;
 	}

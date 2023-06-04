@@ -66,7 +66,7 @@ Usage of strings for the the shorthand units are soon to be depracated. Use the 
 ```js
 const { ConvUnit, Distance } = require('@yetnt/ump')
 
-ConvUnit("dist", 12, Distance.Millimeter, Distance.Centimetre) // 1.2
+ConvUnit("dist", 12, Distance.Millimeter, Distance.Centimeter) // 1.2
 ConvUnit("dist", 1, Distance.Inch, Distance.Centimeter) // 2.54
 ConvUnit("dist", 98, Distance.NauticalMile, Distance.Nanometer) // 1852000000000
 ```

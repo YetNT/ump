@@ -1,4 +1,55 @@
 /**
+ * Enum representing different units of distance measurement.
+ */
+export enum Distance {
+    Nanometer = 'nanometer',
+    Micrometer = 'micrometer',
+    Millimeter = 'millimeter',
+    Centimeter = 'centimeter',
+    Meter = 'meter',
+    Kilometer = 'kilometer',
+    NauticalMile = 'nautical-mile',
+    Inch = 'inch',
+    Foot = 'foot',
+    Yard = 'yard',
+    Mile = 'mile',
+}
+
+/**
+ * Enum representing different units of area measurement.
+ */
+export enum Area {
+    SquareCentimeter = 'square-centimeter',
+    SquareMeter = 'square-meter',
+    SquareFoot = 'square-foot',
+    SquareInch = 'square-inch',
+    Acre = 'acre',
+    Hectare = 'hectare',
+}
+
+/**
+ * Enum representing different units of volume measurement.
+ */
+export enum Volume {
+    Milliliter = 'milliliter',
+    Centiliter = 'centiliter',
+    Deciliter = 'deciliter',
+    Liter = 'liter',
+    Kiloliter = 'kiloliter',
+    Decaliter = 'decaliter',
+    Hectoliter = 'hectoliter',
+    CubicMillimeter = 'cubic-millimeter',
+    CubicCentimeter = 'cubic-centimeter',
+    CubicMeter = 'cubic-meter',
+    CubicInch = 'cubic-inch',
+    FluidOnce = 'fluid-once',
+    Gill = 'gill',
+    Pint = 'pint',
+    Quart = 'quart',
+    Gallon = 'gallon',
+}  
+
+/**
  * Divides `x` into `y` and `z` in a specific ratio and returns the resulting values as an array.
  * 
  * @param {number} x - The value to be divided.
@@ -63,4 +114,4 @@ declare function ConvUnit(unit: string, n: number, fromUnit: string, toUnit: str
 declare function ConvTemp(n: number, from: string, to: string): number;
 
 
-export = {DinRatio, PropRatio, PrimeFactorize, ConvUnit, ConvTemp};
+export = {DinRatio, PropRatio, PrimeFactorize, ConvUnit, ConvTemp, Distance, Area, Volume};

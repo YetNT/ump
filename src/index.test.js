@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 const i = require('./index.js')
+const {Volume, Area, Distance} = require('./index.js')
 const expect = require('expect.js')
 
 describe('Divide In Ratio', function() {
@@ -67,6 +68,26 @@ describe('Conversion of Units', function() {
                 var ans = i.ConvUnit('vol', 1, 'cubic-metre', 'cubic-centimetre')
                 expect(ans).to.eql(1000000)
             })
+        })
+    })
+})
+
+describe('Enums', function () {
+    describe('#Volume', function() {
+        it('should be an object', function() {
+            expect(Volume).to.be.a('object')
+        })
+    })
+
+    describe('#Area', function() {
+        it('should be an object', function() {
+            expect(Area).to.be.a('object')
+        })
+    })
+
+    describe('#Distance', function() {
+        it('should be an object', function() {
+            expect(Distance).to.be.a('object')
         })
     })
 })

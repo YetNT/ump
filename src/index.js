@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const pf = require('./libmath/primeFactorization.js');
+const pf = require('./libmath/primeFactorization');
 const conversionFactors = require('./libmath/convTable.json');
+const {Distance, Area, Volume} = require('./libmath/Units')
 
 const DinRatio = (x, y, z, round = false) =>  {
     var a = parseFloat(y) + parseFloat(z)
@@ -130,5 +131,5 @@ const ConvTemp = (n, from, to) => {
 	}
 }
 
-module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvUnit, ConvTemp}
+module.exports = {DinRatio, PropRatio, PrimeFactorize, ConvUnit, ConvTemp, Distance, Area, Volume}
 

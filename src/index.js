@@ -70,11 +70,22 @@ const ConvUnit = (unit, n, fromUnit, toUnit) => {
     const fromFactor = conversionFactors[fromUnit];
     const toFactor = conversionFactors[toUnit];
     if (!fromFactor || !toFactor) {
-        return `invalid from/to Unit, ${fromUnit} or ${toUnit} is not a valid unit.`;
+        console.error(
+            `invalid from/to Unit, ${fromUnit} or ${toUnit} is not a valid unit.`
+        );
+        console.error(
+            fromFactor == undefined
+                ? `${fromUnit} is invalid.`
+                : toFactor == undefined
+                ? `${toUnit} is invalid.`
+                : `Hm`
+        );
     }
 
     if (unit !== "dist" && unit !== "area" && unit !== "vol") {
-        return "invalid unit. unit must be either 'dist', 'area' or 'vol'";
+        console.error(
+            "invalid unit. unit must be either 'dist', 'area' or 'vol'"
+        );
     } else if (
         (unit === "area" &&
             (!area.includes(fromUnit) || !area.includes(toUnit))) ||
@@ -83,7 +94,9 @@ const ConvUnit = (unit, n, fromUnit, toUnit) => {
         (unit === "vol" &&
             (!volume.includes(fromUnit) || !volume.includes(toUnit)))
     ) {
-        return `unit parameter is not equal to it's units of conversion. ${fromUnit} and ${toUnit}`;
+        console.error(
+            `unit parameter is not equal to it's units of conversion. ${fromUnit} and ${toUnit}`
+        );
     } else {
         return (n * fromFactor) / toFactor;
     }
@@ -91,7 +104,7 @@ const ConvUnit = (unit, n, fromUnit, toUnit) => {
 
 const ConvTemp = (n, from, to) => {
     if (!units.includes(from) || !units.includes(to)) {
-        console.log("error");
+        console.log(`Invalid temperature unit.`);
     }
 
     if (

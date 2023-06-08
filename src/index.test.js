@@ -51,17 +51,17 @@ describe("Conversion of Units", function () {
 
         describe("Distance", function () {
             it("should convert 1 nautical-mile to nanometre = 1852000000000", function () {
-                var ans = i.ConvUnit("dist", 1, "nautical-mile", "nanometre");
+                var ans = i.ConvUnit("dist", 1, "nautical-mile", "nanometer");
                 expect(ans).to.eql(1852000000000);
             });
         });
 
         describe("Area", function () {
-            it("should convert 1 square-centimetre to square-inch = 0.15500031000062", function () {
+            it("should convert 1 square-centimeter to square-inch = 0.15500031000062", function () {
                 var ans = i.ConvUnit(
                     "area",
                     1,
-                    "square-centimetre",
+                    "square-centimeter",
                     "square-inch"
                 );
                 expect(ans).to.eql(0.15500031000062);
@@ -73,8 +73,8 @@ describe("Conversion of Units", function () {
                 var ans = i.ConvUnit(
                     "vol",
                     1,
-                    "cubic-metre",
-                    "cubic-centimetre"
+                    "cubic-meter",
+                    "cubic-centimeter"
                 );
                 expect(ans).to.eql(1000000);
             });

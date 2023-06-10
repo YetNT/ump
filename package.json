@@ -1,6 +1,6 @@
 {
     "name": "@yetnt/ump",
-    "version": "4.1.0",
+    "version": "4.1.1",
     "description": "A very useless math package for your complex javascript projects",
     "main": "./src/index.js",
     "types": "./src/index.d.ts",

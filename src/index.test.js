@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
-const i = require("./index.js");
-const { Volume, Area, Distance } = require("./index.js");
+const i = require("./index");
+const { Volume, Area, Distance } = require("./index");
 const expect = require("expect.js");
 
 describe("Divide In Ratio", function () {
@@ -77,6 +77,47 @@ describe("Conversion of Units", function () {
                     "cubic-centimeter"
                 );
                 expect(ans).to.eql(1000000);
+            });
+        });
+    });
+});
+
+describe("Conversion of Temperatures", function () {
+    describe("#ConvTemp", function () {
+        it("should expose a function", function () {
+            expect(i.ConvTemp).to.be.a("function");
+        });
+
+        describe("Fahrenheit", function () {
+            it("should convert 1 Fahrenheit to Celsius", function () {
+                var ans = i.ConvTemp(1, "F", "C");
+                expect(ans).to.eql(-17.22222222222222);
+            });
+            it("should convert 1 Fahrenheit to Kelvin", function () {
+                var ans = i.ConvTemp(1, "F", "K");
+                expect(ans).to.eql(255.92777777777775);
+            });
+        });
+
+        describe("Celsius", function () {
+            it("should convert 1 Celsius to Fahrenheit", function () {
+                var ans = i.ConvTemp(1, "C", "F");
+                expect(ans).to.eql(33.8);
+            });
+            it("should convert 1 Celsius to Kelvin", function () {
+                var ans = i.ConvTemp(1, "C", "K");
+                expect(ans).to.eql(274.15);
+            });
+        });
+
+        describe("Kelvin", function () {
+            it("should convert 1 Kelvin to Celsius", function () {
+                var ans = i.ConvTemp(1, "K", "C");
+                expect(ans).to.eql(-272.15);
+            });
+            it("should convert 1 Kelvin to Fahrenheit", function () {
+                var ans = i.ConvTemp(1, "K", "F");
+                expect(ans).to.eql(-457.87);
             });
         });
     });

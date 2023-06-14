@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
 const i = require("./index");
-const { Volume, Area, Distance } = require("./index");
+const { Volume, Area, Distance, Data } = require("./index");
 const expect = require("expect.js");
 
 describe("Divide In Ratio", function () {
@@ -43,35 +43,47 @@ describe("Propertional Ratios", function () {
     });
 });
 
-describe("Conversion of Units", function () {
-    describe("#ConvUnit", function () {
-        it("should expose a function", function () {
-            expect(i.ConvUnit).to.be.a("function");
+describe("Conversion", function () {
+    describe("Convert", function () {
+        it("should expose an object", function () {
+            expect(i.Convert).to.be.an("object");
         });
 
         describe("Distance", function () {
+            describe("#Convert.Distance", function () {
+                it("should expose a function", function () {
+                    var ans = i.Convert.Distance;
+                    expect(ans).to.be.a("function");
+                });
+            });
             it("should convert 1 nautical-mile to nanometre = 1852000000000", function () {
-                var ans = i.ConvUnit("dist", 1, "nautical-mile", "nanometer");
+                var ans = i.Convert.Distance(1, "nautical-mile", "nanometer");
                 expect(ans).to.eql(1852000000000);
             });
         });
 
         describe("Area", function () {
+            describe("#Convert.Area", function () {
+                it("should expose a function", function () {
+                    var ans = i.Convert.Area;
+                    expect(ans).to.be.a("function");
+                });
+            });
             it("should convert 1 square-centimeter to square-inch = 0.15500031000062", function () {
-                var ans = i.ConvUnit(
-                    "area",
-                    1,
-                    "square-centimeter",
-                    "square-inch"
-                );
+                var ans = i.Convert.Area(1, "square-centimeter", "square-inch");
                 expect(ans).to.eql(0.15500031000062);
             });
         });
 
         describe("Volume", function () {
+            describe("#Convert.Volume", function () {
+                it("should expose a function", function () {
+                    var ans = i.Convert.Volume;
+                    expect(ans).to.be.a("function");
+                });
+            });
             it("should conevrt 1 cubic metre to cubic centimetre = 1000000", function () {
-                var ans = i.ConvUnit(
-                    "vol",
+                var ans = i.Convert.Volume(
                     1,
                     "cubic-meter",
                     "cubic-centimeter"
@@ -79,45 +91,64 @@ describe("Conversion of Units", function () {
                 expect(ans).to.eql(1000000);
             });
         });
-    });
-});
 
-describe("Conversion of Temperatures", function () {
-    describe("#ConvTemp", function () {
-        it("should expose a function", function () {
-            expect(i.ConvTemp).to.be.a("function");
+        describe("Tempreture", function () {
+            describe("#Convert.Temp", function () {
+                it("should expose a function", function () {
+                    var ans = i.Convert.Temp;
+                    expect(ans).to.be.a("function");
+                });
+            });
+
+            describe("Fahrenheit", function () {
+                it("should convert 1 Fahrenheit to Celsius", function () {
+                    var ans = i.Convert.Temp(1, "F", "C");
+                    expect(ans).to.eql(-17.22222222222222);
+                });
+                it("should convert 1 Fahrenheit to Kelvin", function () {
+                    var ans = i.Convert.Temp(1, "F", "K");
+                    expect(ans).to.eql(255.92777777777775);
+                });
+            });
+
+            describe("Celsius", function () {
+                it("should convert 1 Celsius to Fahrenheit", function () {
+                    var ans = i.Convert.Temp(1, "C", "F");
+                    expect(ans).to.eql(33.8);
+                });
+                it("should convert 1 Celsius to Kelvin", function () {
+                    var ans = i.Convert.Temp(1, "C", "K");
+                    expect(ans).to.eql(274.15);
+                });
+            });
+
+            describe("Kelvin", function () {
+                it("should convert 1 Kelvin to Celsius", function () {
+                    var ans = i.Convert.Temp(1, "K", "C");
+                    expect(ans).to.eql(-272.15);
+                });
+                it("should convert 1 Kelvin to Fahrenheit", function () {
+                    var ans = i.Convert.Temp(1, "K", "F");
+                    expect(ans).to.eql(-457.87);
+                });
+            });
         });
 
-        describe("Fahrenheit", function () {
-            it("should convert 1 Fahrenheit to Celsius", function () {
-                var ans = i.ConvTemp(1, "F", "C");
-                expect(ans).to.eql(-17.22222222222222);
+        describe("Data", function () {
+            describe("#Convert.Data", function () {
+                it("should expose an function", function () {
+                    expect(i.Convert.Data).to.be.a("function");
+                });
             });
-            it("should convert 1 Fahrenheit to Kelvin", function () {
-                var ans = i.ConvTemp(1, "F", "K");
-                expect(ans).to.eql(255.92777777777775);
-            });
-        });
 
-        describe("Celsius", function () {
-            it("should convert 1 Celsius to Fahrenheit", function () {
-                var ans = i.ConvTemp(1, "C", "F");
-                expect(ans).to.eql(33.8);
+            it("should convert 1 Terabyte to Bits", function () {
+                var ans = i.Convert.Data(1, "terabyte", "bit");
+                expect(ans).to.be.eql(8000000000000);
             });
-            it("should convert 1 Celsius to Kelvin", function () {
-                var ans = i.ConvTemp(1, "C", "K");
-                expect(ans).to.eql(274.15);
-            });
-        });
 
-        describe("Kelvin", function () {
-            it("should convert 1 Kelvin to Celsius", function () {
-                var ans = i.ConvTemp(1, "K", "C");
-                expect(ans).to.eql(-272.15);
-            });
-            it("should convert 1 Kelvin to Fahrenheit", function () {
-                var ans = i.ConvTemp(1, "K", "F");
-                expect(ans).to.eql(-457.87);
+            it("should convert 1 Bit to Terabytes", function () {
+                var ans = i.Convert.Data(1, "bit", "terabyte");
+                expect(ans).to.be.eql(1.25e-13);
             });
         });
     });
@@ -126,7 +157,7 @@ describe("Conversion of Temperatures", function () {
 describe("Enums", function () {
     describe("#Volume", function () {
         it("should be an object", function () {
-            expect(Volume).to.be.a("object");
+            expect(Volume).to.be.an("object");
         });
     });
 
@@ -139,6 +170,12 @@ describe("Enums", function () {
     describe("#Distance", function () {
         it("should be an object", function () {
             expect(Distance).to.be.a("object");
+        });
+    });
+
+    describe("#Data", function () {
+        it("should be an object", function () {
+            expect(Data).to.be.a("object");
         });
     });
 });

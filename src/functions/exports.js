@@ -1,16 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const DinRatio = require("./DinRatio");
-const PropRatio = require("./PropRatio");
-const PrimeFactorize = require("./PrimeFactorize");
-const ConvUnit = require("./ConvUnit");
-const ConvTemp = require("./ConvTemp");
+const dinRatio = require("./DinRatio");
+const propRatio = require("./PropRatio");
+const primeFactorize = require("./PrimeFactorize");
 
-/** new functions */
+/* Convert */
 const Data = require("./Convert/Data");
 const Temp = require("./Convert/Temp");
 const Area = require("./Convert/Area");
 const Distance = require("./Convert/Distance");
 const Volume = require("./Convert/Volume");
+
+const LinearPattern = require("./LinearPattern");
+const GeometricPattern = require("./GeometricPattern");
+
+const gcd = require("./Gcd");
 
 const Convert = {
     Data,
@@ -21,10 +24,11 @@ const Convert = {
 };
 
 module.exports = {
-    DinRatio,
-    PropRatio,
-    PrimeFactorize,
-    ConvUnit,
-    ConvTemp,
+    dinRatio,
+    propRatio,
+    primeFactorize,
     Convert,
+    LinearPattern,
+    GeometricPattern,
+    gcd,
 };

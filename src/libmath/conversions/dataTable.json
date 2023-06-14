@@ -1,0 +1,12 @@
+{
+    "bit": 8000000,
+    "byte": 1000000,
+    "kilobyte": 1000,
+    "kibibyte": 976.5625,
+    "megabyte": 1,
+    "mebibyte": 0.9536743164,
+    "gigabyte": 0.001,
+    "gibibyte": 0.0009313226,
+    "terabyte": 0.000001,
+    "tebibyte": 0.000000909494702
+}

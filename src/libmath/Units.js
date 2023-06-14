@@ -40,6 +40,19 @@ const Volume = Object.freeze({
     Gallon: "gallon",
 });
 
+const Data = Object.freeze({
+    Bit: "bit",
+    Byte: "byte",
+    Kilobyte: "kilobyte",
+    Kibibyte: "kibibyte",
+    Megabyte: "megabyte",
+    Mebibyte: "mebibyte",
+    Gigabyte: "gigabyte",
+    Gibibyte: "gibibyte",
+    Terabyte: "terabyte",
+    Tebibyte: "tebibyte",
+});
+
 const distance = [
     "nanometer",
     "nm",
@@ -119,4 +132,27 @@ const units = [
     "f",
     "c",
 ];
-module.exports = { Distance, Area, Volume, distance, area, volume, units };
+const data = [
+    "bit",
+    "byte",
+    "kilobyte",
+    "kibibyte",
+    "megabyte",
+    "mebibyte",
+    "gigabyte",
+    "gibibyte",
+    "terabyte",
+    "tebibyte",
+];
+
+module.exports = {
+    Distance,
+    Area,
+    Volume,
+    Data, // Data enum
+    distance,
+    area,
+    volume,
+    units,
+    data, // Data definiton
+};

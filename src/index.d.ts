@@ -52,6 +52,7 @@ declare function PrimeFactorize(num: number): number[];
 /**
  * Converts a distance value from one unit to another.
  *
+ * @deprecated This function is deprecated. Use Convert.Distance(), Convert.Area(), Convert.Volume() instead
  * @param {string} unit - The unit to convert between. Currently supports `dist`, `area` and `vol`
  * @param {number} n - The value to be converted.
  * @param {string} fromUnit - The current unit of the (area/distance/volume) value. It is suggested that you use the `Area`, `Distance` or `Volume` Enums
@@ -78,6 +79,7 @@ declare function ConvUnit(
 /**
  * Converts between Temperature units
  *
+ * @deprecated This function is deprecated. Use Convert.Temp() instead.
  * @param {number} n - THe value to be converted
  * @param {string} from - The current temperature unit. Param accepts these string forms - `["celsius", "Celsius", "c", "C"]`
  * @param {string} to - The temperature unit to be converted to. Param accepts these strings - `["Kelvin", "kelvin", "k", "K"]`
@@ -85,6 +87,32 @@ declare function ConvUnit(
  * @returns Converted Temperature
  */
 declare function ConvTemp(n: number, from: string, to: string): number;
+
+/**
+ * Convert object used to convert between different things. An example would be Convert.Area
+ */
+declare namespace Convert {
+    function Distance(n: number, from: string, to: string): number;
+    function Area(n: number, from: string, to: string): number;
+    function Volume(n: number, from: string, to: string): number;
+    /**
+     * Converts between Temperature units
+     *
+     * @param {number} n - THe value to be converted
+     * @param {string} from - The current temperature unit. Param accepts these string forms - `["celsius", "Celsius", "c", "C"]`
+     * @param {string} to - The temperature unit to be converted to. Param accepts these strings - `["Kelvin", "kelvin", "k", "K"]`
+     *
+     * @returns Converted Temperature
+     */
+    function Temp(n: number, from: string, to: string): number;
+    /**
+     *
+     * @param n The value to be converted
+     * @param from The current data value.
+     * @param to The value to convert to.
+     */
+    function Data(n: number, from: string, to: string): number;
+}
 
 /**
  * Enum representing different units of distance measurement.
@@ -137,13 +165,28 @@ export enum Volume {
     Gallon = "gallon",
 }
 
+export enum Data {
+    Bit = "bit",
+    Byte = "byte",
+    Kilobyte = "kilobyte",
+    Kibibyte = "kibibyte",
+    Megabyte = "megabyte",
+    Mebibyte = "mebibyte",
+    Gigabyte = "gigabyte",
+    Gibibyte = "gibibyte",
+    Terabyte = "terabyte",
+    Tebibyte = "tebibyte",
+}
+
 export = {
     DinRatio,
     PropRatio,
     PrimeFactorize,
     ConvUnit,
     ConvTemp,
+    Convert,
     Distance,
     Area,
     Volume,
+    Data,
 };

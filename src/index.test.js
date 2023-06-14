@@ -20,7 +20,7 @@ describe("Divide In Ratio", function () {
 describe("Prime Factorization", function () {
     describe("#PrimeFactorize", function () {
         it("should expose a function", function () {
-            expect(i.GeometricPatternrimeFactorize).to.be.a("function");
+            expect(i.primeFactorize).to.be.a("function");
         });
 
         it("should give the prime factors of 5000, returning [2, 2, 2, 5, 5, 5, 5]", function () {
@@ -199,6 +199,64 @@ describe("Greatest Common Divisor", function () {
     });
 });
 
+describe("Stats", function () {
+    describe("#Stats", function () {
+        it("should be an object", function () {
+            expect(i.Stats).to.be.an("object");
+        });
+
+        describe("#Stats.mean", function () {
+            it("should expose a func", function () {
+                expect(i.Stats.mean).to.be.a("function");
+            });
+            it("mean of [1, 1, 2, 6, 7, 8, 3, 5, 5, 1] should equal to 3.9", function () {
+                let ans = i.Stats.mean([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]);
+                expect(ans).to.be.eql(3.9);
+            });
+        });
+
+        describe("#Stats.median", function () {
+            it("should expose a func", function () {
+                expect(i.Stats.median).to.be.a("function");
+            });
+            it("median of [1, 1, 2, 6, 7, 8, 3, 5, 5, 1] should equal to 3.9", function () {
+                let ans = i.Stats.median([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]);
+                expect(ans).to.be.eql(2.5);
+            });
+        });
+
+        describe("#Stats.mode", function () {
+            it("should expose a func", function () {
+                expect(i.Stats.mode).to.be.a("function");
+            });
+            it("mode of [1, 1, 2, 6, 7, 8, 3, 5, 5, 1] should equal [ 1 ]", function () {
+                let ans = i.Stats.mode([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]);
+                expect(ans).to.be.eql([1]);
+            });
+        });
+
+        describe("#Stats.range", function () {
+            it("should expose a func", function () {
+                expect(i.Stats.range).to.be.a("function");
+            });
+            it("range of [1, 1, 2, 6, 7, 8, 3, 5, 5, 1] should equal 7", function () {
+                let ans = i.Stats.range([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]);
+                expect(ans).to.be.eql(7);
+            });
+        });
+
+        describe("#Stats.sum", function () {
+            it("should expose a func", function () {
+                expect(i.Stats.sum).to.be.a("function");
+            });
+            it("sum of [1, 1, 2, 6, 7, 8, 3, 5, 5, 1] should equal 39", function () {
+                let ans = i.Stats.sum([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]);
+                expect(ans).to.be.eql(39);
+            });
+        });
+    });
+});
+
 describe("Enums", function () {
     describe("#Volume", function () {
         it("should be an object", function () {
@@ -208,19 +266,19 @@ describe("Enums", function () {
 
     describe("#Area", function () {
         it("should be an object", function () {
-            expect(Area).to.be.a("object");
+            expect(Area).to.be.an("object");
         });
     });
 
     describe("#Distance", function () {
         it("should be an object", function () {
-            expect(Distance).to.be.a("object");
+            expect(Distance).to.be.an("object");
         });
     });
 
     describe("#Data", function () {
         it("should be an object", function () {
-            expect(Data).to.be.a("object");
+            expect(Data).to.be.an("object");
         });
     });
 });

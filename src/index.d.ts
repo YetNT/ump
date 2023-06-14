@@ -51,6 +51,12 @@ declare function propRatio(
  */
 declare function primeFactorize(num: number): number[];
 
+/**
+ * Greatest Common Divider
+ * @param a 1st number
+ * @param b 2nd number
+ */
+declare function gcd(a: number, b: number): number;
 
 /**
  * Convert object used to convert between different things. An example would be Convert.Area
@@ -60,7 +66,7 @@ declare namespace Convert {
      * Converts between distance/length units
      *
      * @param {number} n - The value to be converted
-     * @param {string} from - The current distance unit. 
+     * @param {string} from - The current distance unit.
      * @param {string} to - The distamce unit to be converted to.
      *
      * @returns Converted distance
@@ -82,9 +88,9 @@ declare namespace Convert {
      * Converts between volume units
      *
      * @param {number} n - The value to be converted
-     * @param {string} from - The current volume unit. 
+     * @param {string} from - The current volume unit.
      * @param {string} to - The volume unit to be converted to.
-     * 
+     *
      * @returns Converted volume
      */
     function volume(n: number, from: string, to: string): number;
@@ -157,12 +163,38 @@ declare namespace GeometricPattern {
     function findN(num1: number, num2: number, num3: number): string;
 }
 
-/**
- * Greatest Common Divider
- * @param a 1st number
- * @param b 2nd number
- */
-declare function gcd(a: number, b: number): number;
+declare namespace Stats {
+    /**
+     * Adds up all the numbers then divide by the array's length.
+     * @param arr Array of numbers
+     * @param round Round off to the nearest number. Default is false
+     */
+    function mean(arr: number[], round?: boolean): number;
+
+    /**
+     * Places the numbers in order then returns the number in the middle.
+     * @param arr Array of numbers
+     */
+    function median(arr: number[]): number;
+
+    /**
+     * Gives the number that occured the most.
+     * @param arr Array of numbers
+     */
+    function mode(arr: number[]): number[];
+
+    /**
+     * Difference between the biggest number and the smallest number
+     * @param arr Array of numbers
+     */
+    function range(arr: number[]): number;
+
+    /**
+     * Sums up all the numbers in the array.
+     * @param arr Array of numbers
+     */
+    function sum(arr: number[]): number;
+}
 
 /**
  * Enum representing different units of distance measurement.
@@ -236,6 +268,7 @@ export = {
     LinearPattern,
     GeometricPattern,
     gcd,
+    Stats,
     Distance,
     Area,
     Volume,

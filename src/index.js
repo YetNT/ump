@@ -8,6 +8,7 @@ const {
     LinearPattern,
     GeometricPattern,
     gcd,
+    Stats,
 } = require("./functions/exports"); // import functions
 
 // moved all function sto different files for better handling.
@@ -20,6 +21,7 @@ module.exports = {
     LinearPattern,
     GeometricPattern,
     gcd,
+    Stats,
     Distance,
     Area,
     Volume,

@@ -1,8 +1,5 @@
-/**
- * FUNCTION IS DEPRACTED!
- */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { units } = require("../libmath/Units"); // allowed inputs arrays
+const { units } = require("../../libmath/Units"); // allowed inputs arrays
 
 module.exports = (n, from, to) => {
     if (!units.includes(from) || !units.includes(to)) {

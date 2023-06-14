@@ -1,16 +1,18 @@
+/**
+ * FUNCTION IS DEPRACTED!
+ */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const conversionFactors = require("../libmath/convTable.json");
+const conversionFactors = require("../libmath/conversions/convTable.json");
 const { distance, area, volume } = require("../libmath/Units"); // allowed inputs arrays
 
 module.exports = (unit, n, fromUnit, toUnit) => {
     const fromFactor = conversionFactors[fromUnit];
     const toFactor = conversionFactors[toUnit];
     if (!fromFactor || !toFactor) {
-        console.error(
-            `invalid from/to Unit, ${fromUnit} or ${toUnit} is not a valid unit.`
-        );
-        console.error(
-            fromFactor == undefined
+        throw Error(
+            `invalid from/to Unit, ${fromUnit} or ${toUnit} is not a valid unit.` +
+                fromFactor ==
+                undefined
                 ? `${fromUnit} is invalid.`
                 : toFactor == undefined
                 ? `${toUnit} is invalid.`
@@ -19,7 +21,7 @@ module.exports = (unit, n, fromUnit, toUnit) => {
     }
 
     if (unit !== "dist" && unit !== "area" && unit !== "vol") {
-        console.error(
+        throw Error(
             "invalid unit. unit must be either 'dist', 'area' or 'vol'"
         );
     } else if (
@@ -30,7 +32,7 @@ module.exports = (unit, n, fromUnit, toUnit) => {
         (unit === "vol" &&
             (!volume.includes(fromUnit) || !volume.includes(toUnit)))
     ) {
-        console.error(
+        throw Error(
             `unit parameter is not equal to it's units of conversion. ${fromUnit} and ${toUnit}`
         );
     } else {

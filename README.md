@@ -155,11 +155,54 @@ const { gcd } = require("@yetnt/ump");
 gcd(56, 24); // 8
 ```
 
+### Statistics
+
+## Mean
+
+```js
+const { Stats } = require("@yetnt/ump");
+
+Stats.mean([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); // 3.9
+```
+
+## Median
+
+```js
+const { Stats } = require("@yetnt/ump");
+
+Stats.median([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); //2.5
+```
+
+## Mode
+
+```js
+const { Stats } = require("@yetnt/ump");
+
+Stats.mode([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); // [ 1 ]
+```
+
+## Range
+
+```js
+const { Stats } = require("@yetnt/ump");
+
+Stats.range([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); // 7
+```
+
+## Sum
+
+```js
+const { Stats } = require("@yetnt/ump");
+
+Stats.sum([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); // 39
+```
+
 ## Releases
 
 [Github](https://github.com/Yetity/ump/releases) \
 **[Latest](https://github.com/Yetity/ump/releases/latest)**
 
+> -   **[5.0.0](https://github.com/Yetity/ump/releases/tag/v4.0.0)**
 > -   **[4.0.0](https://github.com/Yetity/ump/releases/tag/v4.0.0)**
 > -   **[3.0.0](https://github.com/Yetity/ump/releases/tag/v3.0.0)**
 > -   **[2.0.0](https://github.com/Yetity/ump/releases/tag/v2.0.0)**

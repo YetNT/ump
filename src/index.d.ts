@@ -1,3 +1,5 @@
+import { GeometricPattern } from "./functions/exports";
+
 /**
  *  Divides `x` into the ratio of `y` : `z` and returns the resulting values as an array.
  *
@@ -8,7 +10,7 @@
  *
  * @returns An array containing two elements, the result of dividing `x` into `y` and the result of dividing `x` into `z`.
  */
-declare function DinRatio(
+declare function dinRatio(
     x: number,
     y: number,
     z: number,
@@ -33,7 +35,7 @@ declare function DinRatio(
  *console.log(Ump.PropRatio(4, 2, 1, true)) // 0.5
  *```
  */
-declare function PropRatio(
+declare function propRatio(
     x: number,
     y: number,
     z: number,
@@ -47,72 +49,120 @@ declare function PropRatio(
  *
  * @returns An array of prime factors.
  */
-declare function PrimeFactorize(num: number): number[];
+declare function primeFactorize(num: number): number[];
 
-/**
- * Converts a distance value from one unit to another.
- *
- * @deprecated This function is deprecated. Use Convert.Distance(), Convert.Area(), Convert.Volume() instead
- * @param {string} unit - The unit to convert between. Currently supports `dist`, `area` and `vol`
- * @param {number} n - The value to be converted.
- * @param {string} fromUnit - The current unit of the (area/distance/volume) value. It is suggested that you use the `Area`, `Distance` or `Volume` Enums
- * @param {string} toUnit - The unit to which the (area/distance/volume) value should be converted. It is suggested that you use the `Area`, `Distance` or `Volume` Enums
- *
- * @returns The distance value in the specified unit.
- *
- * Example with Enums :
- * ```js
- * const {Area, Distance, Volume, ConvUnit} = require('@yetnt/ump')
- *
- * console.log(ConvUnit("dist", 12, Distance.Millimeter, Distance.Centimeter)) // 1.2
- * console.log(ConvUnit("area", 34, Area.SquareCentimeter, Area.SquareInch)) // 5.27001054002108
- * console.log(ConvUnit("vol", 490, Volume.Quart, Volume.Liter)) // 463.71297
- * ```
- */
-declare function ConvUnit(
-    unit: string,
-    n: number,
-    fromUnit: string,
-    toUnit: string
-): number;
-
-/**
- * Converts between Temperature units
- *
- * @deprecated This function is deprecated. Use Convert.Temp() instead.
- * @param {number} n - THe value to be converted
- * @param {string} from - The current temperature unit. Param accepts these string forms - `["celsius", "Celsius", "c", "C"]`
- * @param {string} to - The temperature unit to be converted to. Param accepts these strings - `["Kelvin", "kelvin", "k", "K"]`
- *
- * @returns Converted Temperature
- */
-declare function ConvTemp(n: number, from: string, to: string): number;
 
 /**
  * Convert object used to convert between different things. An example would be Convert.Area
  */
 declare namespace Convert {
-    function Distance(n: number, from: string, to: string): number;
-    function Area(n: number, from: string, to: string): number;
-    function Volume(n: number, from: string, to: string): number;
+    /**
+     * Converts between distance/length units
+     *
+     * @param {number} n - The value to be converted
+     * @param {string} from - The current distance unit. 
+     * @param {string} to - The distamce unit to be converted to.
+     *
+     * @returns Converted distance
+     */
+    function distance(n: number, from: string, to: string): number;
+
+    /**
+     * Converts between area units
+     *
+     * @param {number} n - The value to be converted
+     * @param {string} from - The current area unit.
+     * @param {string} to - The area unit to be converted to.
+     *
+     * @returns Converted area
+     */
+    function area(n: number, from: string, to: string): number;
+
+    /**
+     * Converts between volume units
+     *
+     * @param {number} n - The value to be converted
+     * @param {string} from - The current volume unit. 
+     * @param {string} to - The volume unit to be converted to.
+     * 
+     * @returns Converted volume
+     */
+    function volume(n: number, from: string, to: string): number;
     /**
      * Converts between Temperature units
      *
-     * @param {number} n - THe value to be converted
+     * @param {number} n - The value to be converted
      * @param {string} from - The current temperature unit. Param accepts these string forms - `["celsius", "Celsius", "c", "C"]`
      * @param {string} to - The temperature unit to be converted to. Param accepts these strings - `["Kelvin", "kelvin", "k", "K"]`
      *
      * @returns Converted Temperature
      */
-    function Temp(n: number, from: string, to: string): number;
+    function temp(n: number, from: string, to: string): number;
     /**
      *
      * @param n The value to be converted
      * @param from The current data value.
      * @param to The value to convert to.
+     *
+     * @returns Converted data
      */
-    function Data(n: number, from: string, to: string): number;
+    function data(n: number, from: string, to: string): number;
 }
+
+/**
+ * Linear Pattern functions
+ */
+declare namespace LinearPattern {
+    /**
+     *
+     * @param n The term number.
+     * @param d The difference.
+     * @param a First number in sequqnce. The formula for this is `Tn = a + (n - 1) * d`. If you prefer to use `Tn = dn+c`, then `a` is `c`
+     */
+    function findTerm(n: number, d: number, a: number): number;
+
+    /**
+     *
+     * @param num1 The first number
+     * @param num2 The second number
+     * @param num3 The third number
+     * @param returnSimplified Return the simplified formula of `Tn = dn+c` rather than `Tn = a + (n - 1) * d`
+     */
+    function findN(
+        num1: number,
+        num2: number,
+        num3: number,
+        returnSimplified?: boolean
+    ): string;
+}
+
+/**
+ * Gemotric pattern functions
+ */
+declare namespace GeometricPattern {
+    /**
+     *
+     * @param n The term number (not zero indexed)
+     * @param a The first term
+     * @param r The constant ratio.
+     */
+    function findTerm(n: number, a: number, r: number): number;
+
+    /**
+     *
+     * @param num1 The first number
+     * @param num2 The second number
+     * @param num3 The third number
+     */
+    function findN(num1: number, num2: number, num3: number): string;
+}
+
+/**
+ * Greatest Common Divider
+ * @param a 1st number
+ * @param b 2nd number
+ */
+declare function gcd(a: number, b: number): number;
 
 /**
  * Enum representing different units of distance measurement.
@@ -179,12 +229,13 @@ export enum Data {
 }
 
 export = {
-    DinRatio,
-    PropRatio,
-    PrimeFactorize,
-    ConvUnit,
-    ConvTemp,
+    dinRatio,
+    propRatio,
+    primeFactorize,
     Convert,
+    LinearPattern,
+    GeometricPattern,
+    gcd,
     Distance,
     Area,
     Volume,

@@ -1,6 +1,6 @@
 {
     "name": "@yetnt/ump",
-    "version": "4.2.0",
+    "version": "5.0.0",
     "description": "A very useless math package for your complex javascript projects",
     "main": "./src/index.js",
     "types": "./src/index.d.ts",
@@ -14,6 +14,7 @@
     "keywords": [
         "javascript",
         "math",
+        "maths",
         "prime",
         "numbers",
         "ratios",
@@ -26,7 +27,13 @@
         "area",
         "volume",
         "temperature",
-        "data"
+        "data",
+        "pattern",
+        "gcd",
+        "mean",
+        "mode",
+        "median",
+        "range"
     ],
     "author": "YetNT",
     "license": "MIT",

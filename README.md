@@ -77,51 +77,55 @@ in this case
 
 ### Conversion
 
-#### Pre-read
-
-Usage of strings for the the shorthand units are soon to be depracated. Use the `Unit Enums` instead.
-
 #### Distance
 
 ```js
-const { ConvUnit, Distance } = require("@yetnt/ump");
+const { Convert, Distance } = require("@yetnt/ump");
 
-ConvUnit("dist", 12, Distance.Millimeter, Distance.Centimeter); // 1.2
-ConvUnit("dist", 1, Distance.Inch, Distance.Centimeter); // 2.54
-ConvUnit("dist", 98, Distance.NauticalMile, Distance.Nanometer); // 1852000000000
+Convert.Distance(12, Distance.Millimeter, Distance.Centimeter); // 1.2
+Convert.Distance(1, Distance.Inch, Distance.Centimeter); // 2.54
+Convert.Distance(98, Distance.NauticalMile, Distance.Nanometer); // 1852000000000
 ```
 
 #### Area
 
 ```js
-const { ConvUnit, Area } = require("@yetnt/ump");
+const { Convert, Area } = require("@yetnt/ump");
 
-ConvUnit("area", 34, Area.SquareCentimetre, Area.SquareInch); // 5.27001054002108
-ConvUnit("area", 34, "cm2", "inch2"); // 5.27001054002108
-ConvUnit("area", 490, Area.Hectare, Area.SquareFoot); // 52743183.75079384
+Convert.Area(34, Area.SquareCentimetre, Area.SquareInch); // 5.27001054002108
+Convert.Area(34, "cm2", "inch2"); // 5.27001054002108
+Convert.Area(490, Area.Hectare, Area.SquareFoot); // 52743183.75079384
 ```
 
 #### Volume
 
 ```js
-const { ConvUnit, Volume } = require("@yetnt/ump");
+const { Convert, Volume } = require("@yetnt/ump");
 
-ConvUnit("vol", 34, Volume.CubicCentimeter, Volume.CubicInch); // 2.0748027411805627
-ConvUnit("vol", 34, "cm3", "inch3"); // 2.0748027411805627
-ConvUnit("vol", 490, Volume.Quart, Volume.Liter); // 463.71297
+Convert.Volume(34, Volume.CubicCentimeter, Volume.CubicInch); // 2.0748027411805627
+Convert.Volume(34, "cm3", "inch3"); // 2.0748027411805627
+Convert.Volume(490, Volume.Quart, Volume.Liter); // 463.71297
 ```
 
-### Temperatures
+#### Temperature
 
 ```js
-const { ConvTemp } = require("@yetnt/ump");
+const { Convert } = require("@yetnt/ump");
 
-ConvTemp(1, "K", "C"); // 1 Kelvin to Celsius = -272.15
-ConvTemp(1, "Fahrenheit", "kelvin"); // 1 Fahrenheit to kelvin = 255.92777777777775
-ConvTemp(1, "c", "f"); // 1 Celsius to Fahrenheit = 33.8
+Convert.Temp(1, "K", "C"); // 1 Kelvin to Celsius = -272.15
+Convert.Temp(1, "Fahrenheit", "kelvin"); // 1 Fahrenheit to kelvin = 255.92777777777775
+Convert.Temp(1, "c", "f"); // 1 Celsius to Fahrenheit = 33.8
 ```
 
-[Distance/Area/Volume definitons](https://github.com/Yetity/ump/blob/main/src/libmath/Units.js)
+#### Data
+
+```js
+const { Convert, Data } = require("@yetnt/ump");
+
+Convert.Data(15, Data.Kibibyte, Data.Tebibyte); // 1.396983862272e-8
+Convert.Data(20, Data.Gigabyte, Data.Kilobyte); // 20000000
+Convert.Data(1, Data.Terabyte, Data.Bit); //8000000000000
+```
 
 ## Releases
 

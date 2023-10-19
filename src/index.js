@@ -1,29 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { Distance, Area, Volume, Data } = require("./libmath/Units"); // enums
 const {
-    dinRatio,
-    propRatio,
-    primeFactorize,
-    Convert,
-    LinearPattern,
-    GeometricPattern,
-    gcd,
-    Stats,
-} = require("./functions/exports"); // import functions
+    data,
+    units,
+    volume,
+    area,
+    distance,
+    ...enums
+} = require("./libmath/Units"); // enums
 
-// moved all function sto different files for better handling.
-
-module.exports = {
-    dinRatio,
-    propRatio,
-    primeFactorize,
-    Convert,
-    LinearPattern,
-    GeometricPattern,
-    gcd,
-    Stats,
-    Distance,
-    Area,
-    Volume,
-    Data,
-};
+module.exports = { ...require("./functions/exports"), ...enums };

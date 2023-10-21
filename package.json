@@ -2,10 +2,14 @@
     "name": "@yetnt/ump",
     "version": "5.0.0",
     "description": "A very useless math package for your complex javascript projects",
-    "main": "./src/index.js",
-    "types": "./src/index.d.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist"
+    ],
     "scripts": {
-        "test": "mocha ./src/index.test.js"
+        "test": "mocha ./src/index.test.js",
+        "build": "npx tsc"
     },
     "repository": {
         "type": "git",
@@ -13,6 +17,7 @@
     },
     "keywords": [
         "javascript",
+        "typescript",
         "math",
         "maths",
         "prime",

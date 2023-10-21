@@ -1,4 +1,4 @@
-const precedence = {
+const precedence: { [key: string]: number } = {
     "+": 1,
     "-": 1,
     "*": 2,
@@ -8,11 +8,18 @@ const precedence = {
     "**": 3,
 };
 
-module.exports = function calculate(expression) {
-    function applyOperator(operators, values) {
+/**
+ * Evaluate a string calculation. e.g.
+ * @param expression An expression in string form to be evaluated. (Accepted operations include: + - / × ÷ ^ and %)
+ * @example
+ * calculate("2 + 2") // 4
+ * calcualte("5%10") // 5 % of 10 = 0.5
+ */
+export function calculate(expression: string): number {
+    function applyOperator(operators: string[], values: number[]) {
         const operator = operators.pop();
-        const right = values.pop();
-        const left = values.pop();
+        const right = values.pop() as number;
+        const left = values.pop() as number;
         switch (operator) {
             case "+":
                 values.push(left + right);
@@ -38,16 +45,19 @@ module.exports = function calculate(expression) {
         }
     }
 
-    const operators = [];
-    const values = [];
+    const operators: string[] = [];
+    const values: number[] = [];
 
     for (let i = 0; i < expression.length; i++) {
         const token = expression[i];
         if (token === " ") {
             continue;
-        } else if (!isNaN(token)) {
+        } else if (!isNaN(Number(token))) {
             let number = token;
-            while (i + 1 < expression.length && !isNaN(expression[i + 1])) {
+            while (
+                i + 1 < expression.length &&
+                !isNaN(Number(expression[i + 1]))
+            ) {
                 number += expression[i + 1];
                 i++;
             }
@@ -95,4 +105,4 @@ module.exports = function calculate(expression) {
     }
 
     return values[0];
-};
+}

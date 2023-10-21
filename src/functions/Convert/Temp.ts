@@ -1,9 +1,17 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { units } = require("../../libmath/Units"); // allowed inputs arrays
-
-module.exports = (n, from, to) => {
-    if (!units.includes(from) || !units.includes(to)) {
-        throw Error(`Invalid temperature unit.`);
+import { tempUnits } from "../../libmath/Units"; // allowed inputs arrays
+/**
+ * Converts between Temperature units
+ *
+ * @param n - The value to be converted
+ * @param from - The current temperature unit. Param accepts these string forms - `["celsius", "Celsius", "c", "C"]`
+ * @param to - The temperature unit to be converted to. Param accepts these strings - `["Kelvin", "kelvin", "k", "K"]`
+ *
+ * @returns Converted Temperature
+ */
+export function temp(n: number, from: string, to: string): number {
+    if (!tempUnits.includes(from) || !tempUnits.includes(to)) {
+        throw new Error(`Invalid temperature unit.`);
     }
 
     if (
@@ -61,4 +69,6 @@ module.exports = (n, from, to) => {
                 return ((n - 32) * 5) / 9 + 273.15; // Fahrenheit to Kelvin
         }
     }
-};
+
+    return 0;
+}

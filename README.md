@@ -2,10 +2,12 @@
 
 I mean.. Do you really need this soon to be multi mathemetically functioning package? (if that even makes sense)
 
-## Installation
+# Installation
 
 ```bash
 npm i @yetnt/ump
+sudo npm install @yetnt/ump
+yarn add @yetnt/ump
 ```
 
 > _It's suggested you don't install from github itself as I'm consistently commiting to the project you'll need to update everyday and because some code breaks because i'm editing it so just get it from npm :+1:_
@@ -22,11 +24,15 @@ const { primeFactorize } = require("@yetnt/ump");
 primeFactorize();
 ```
 
-## Features
+# Features
 
-So far this package can do a lot
+## `primeFactorize`
 
-### Prime Factorization
+Prime Factorization
+
+### Parameters
+
+-   `num`: The number to be factorized
 
 ```js
 const { primeFactorize } = require("@yetnt/ump");
@@ -37,9 +43,18 @@ primeFactorize(93928893); // [3, 17, 103, 17881]
 primeFactorize(3); // [3]
 ```
 
-### Ratio(s)
+## Ratio(s)
 
-#### Divide `x` in the ratio of `y`:`z`
+### `dinRatio`
+
+Divide `x` in the ratio of `y`:`z`
+
+#### Parameters
+
+-   `x`: Dividend
+-   `y`: The ratio value for y
+-   `z`: The ratio value for z
+-   `round`**(optional)**: Round off to 2 decimal places
 
 ```js
 const { dinRatio } = require("@yetnt/ump");
@@ -49,7 +64,17 @@ dinRatio(456.93, 12, 5); // [ 322.5388235294118, 134.39117647058825 ]
 dinRatio(456.93, 12, 5, true); // ['322.54', '134.39']
 ```
 
-#### Direct Proportion (equivalent ratios)
+### `propRatio`
+
+Direct Proportion (equivalent ratios)
+Calculates the proportional value of `x`, `y`, and `z` in a ratio.
+
+#### Parameters
+
+-   `x`: The x value in the ratio
+-   `y`: The y value in the ratio
+-   `z`: The z value in the ratio
+-   `which`**(optional)**: Switch unknown value and z
 
 ```js
 const { propRatio } = require("@yetnt/ump");
@@ -75,9 +100,18 @@ in this case
 */
 ```
 
-### Conversion
+## Conversion
 
-#### Distance
+### Parameters
+
+The parameters stay the same for every function.
+
+-   `n`: The value to be converted
+-   `from`: Current area unit -`to`: Area unit to convert to.
+
+Each function comes with it's own enums for the area unit strings.
+
+### Distance
 
 ```js
 const { Convert, Distance } = require("@yetnt/ump");
@@ -87,7 +121,7 @@ Convert.distance(1, Distance.Inch, Distance.Centimeter); // 2.54
 Convert.distance(98, Distance.NauticalMile, Distance.Nanometer); // 1852000000000
 ```
 
-#### Area
+### Area
 
 ```js
 const { Convert, Area } = require("@yetnt/ump");
@@ -97,7 +131,7 @@ Convert.area(34, "cm2", "inch2"); // 5.27001054002108
 Convert.area(490, Area.Hectare, Area.SquareFoot); // 52743183.75079384
 ```
 
-#### Volume
+### Volume
 
 ```js
 const { Convert, Volume } = require("@yetnt/ump");
@@ -107,7 +141,7 @@ Convert.volume(34, "cm3", "inch3"); // 2.0748027411805627
 Convert.volume(490, Volume.Quart, Volume.Liter); // 463.71297
 ```
 
-#### Temperature
+### Temperature
 
 ```js
 const { Convert } = require("@yetnt/ump");
@@ -117,7 +151,7 @@ Convert.temp(1, "Fahrenheit", "kelvin"); // 1 Fahrenheit to kelvin = 255.9277777
 Convert.temp(1, "c", "f"); // 1 Celsius to Fahrenheit = 33.8
 ```
 
-#### Data
+### Data
 
 ```js
 const { Convert, Data } = require("@yetnt/ump");
@@ -127,27 +161,72 @@ Convert.data(20, Data.Gigabyte, Data.Kilobyte); // 20000000
 Convert.data(1, Data.Terabyte, Data.Bit); //8000000000000
 ```
 
-### Pattterns
+## Pattterns
 
-#### Linear Patterns
+### Linear Patterns
+
+#### `findNthTerm()`
+
+-   `num1`: The first number in the sequence
+-   `num2`: The second number in the sequence
+-   `num3`: The third number in the sequence
+-   `returnSimplified`**(optional)**: Return the simplified formula of **Tn = dn+c** rather than **Tn = a + (n - 1) \* d**
+
+#### `findTerm()`
+
+Find the a term in the sequence.
+
+-   `n`: The term position in the sequence
+-   `d`: The difference
+-   `a`: First number in sequence. The formula for this is **Tn = a + (n - 1) \* d**. If you prefer to use **Tn = dn+c**, then `a` is `c`
 
 ```js
 const { LinearPattern } = require("@yetnt/ump");
 
-LinearPattern.findN(10, 30, 50); // "10 + (n - 1) * 20"
-LinearPattern.findTerm(3, 20, 10); // 50, (find the 3rd term in the sequence. 20 is the difference and 10 is the first number in the sequence)
+let nthTerm = LinearPattern.findNthTerm(10, 20, 30);
+console.log(nthTerm); // { a: 10, d: 10, formula: '10 + (n - 1) * 10' }
+LinearPattern.findTerm(90, nthTerm.d, nthTerm.a);
+
+// USING SIMPLIFIED FORMULA
+
+let nthTerm = LinearPattern.findNthTerm(10, 20, 30, true);
+console.log(nthTerm); // { c: 10, d: 10, formula: '10 + (n - 1) * 10' }
+LinearPattern.findTerm(90, nthTerm.d, nthTerm.c);
 ```
 
-#### Geometric Patterns
+### Geometric Patterns
+
+#### `findNthTerm()`
+
+-   `num1`: The first number in the sequence
+-   `num2`: The second number in the sequence
+-   `num3`: The third number in the sequence
+
+#### `findTerm`
+
+Find a term in the sequence
+
+-   `n`: The term number
+-   `a`: The first term
+-   `r`: The constant ratio
 
 ```js
 const { GeometricPattern } = require("@yetnt/ump");
 
-GeometricPattern.findN(1, 4, 16); // "1 * 4**(n - 1)"
-GeometricPattern.findTerm(3, 1, 4); // 16, 3 is the term number, 1 is the first term and 4 is the constant ratio.
+let nthTerm = GeometricPattern.findNthTerm(2, 4, 8);
+console.log(nthTerm); // { a: 2, r: 2, formula: '2 * 2^(n - 1)' }
+
+GeometricPattern.findTerm(20, nthTerm.a, nthTerm.r); // 1048576
 ```
 
-### Greatest Common Divisor (Highest Common Factor)
+## `gcd`
+
+Greatest Common Divisor (Highest Common Factor)
+
+### Parameters
+
+-   `a`: 1dt number
+-   `b`: 2nd number
 
 ```js
 const { gcd } = require("@yetnt/ump");
@@ -155,9 +234,17 @@ const { gcd } = require("@yetnt/ump");
 gcd(56, 24); // 8
 ```
 
-### Statistics
+## Statistics
 
-## Mean
+### Parameters
+
+These all take in an array of numbers.
+
+-   `arr`: Array of numbers.
+
+### Mean
+
+Average
 
 ```js
 const { Stats } = require("@yetnt/ump");
@@ -165,7 +252,9 @@ const { Stats } = require("@yetnt/ump");
 Stats.mean([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); // 3.9
 ```
 
-## Median
+### Median
+
+Middle number
 
 ```js
 const { Stats } = require("@yetnt/ump");
@@ -173,7 +262,9 @@ const { Stats } = require("@yetnt/ump");
 Stats.median([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); //2.5
 ```
 
-## Mode
+### Mode
+
+Number that occurs the most
 
 ```js
 const { Stats } = require("@yetnt/ump");
@@ -181,7 +272,9 @@ const { Stats } = require("@yetnt/ump");
 Stats.mode([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); // [ 1 ]
 ```
 
-## Range
+### Range
+
+Max - Min
 
 ```js
 const { Stats } = require("@yetnt/ump");
@@ -189,7 +282,9 @@ const { Stats } = require("@yetnt/ump");
 Stats.range([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); // 7
 ```
 
-## Sum
+### Sum
+
+Sum of all the numbers.
 
 ```js
 const { Stats } = require("@yetnt/ump");
@@ -197,32 +292,26 @@ const { Stats } = require("@yetnt/ump");
 Stats.sum([1, 1, 2, 6, 7, 8, 3, 5, 5, 1]); // 39
 ```
 
-## Releases
+# Releases
 
 [Github](https://github.com/Yetity/ump/releases) \
 **[Latest](https://github.com/Yetity/ump/releases/latest)**
 
-> -   **[5.0.0](https://github.com/Yetity/ump/releases/tag/v4.0.0)**
-> -   **[4.0.0](https://github.com/Yetity/ump/releases/tag/v4.0.0)**
-> -   **[3.0.0](https://github.com/Yetity/ump/releases/tag/v3.0.0)**
-> -   **[2.0.0](https://github.com/Yetity/ump/releases/tag/v2.0.0)**
-> -   **[1.0.0](https://github.com/Yetity/ump/releases/tag/v1.0.0)**
-
-## Links
+# Links
 
 -   [Github](https://github.com/Yetity/ump)
 -   [NPM](https://npmjs.com/package/@yetnt/ump)
 
-## Contributors
+# Contributors
 
-#### Main/Owner/Creator of package
+## Main/Owner/Creator of package
 
 -   YetNT
     -   [Discord](https://discordapp.com/users/671549251024584725)
     -   [Github](https://github.com/Yetity)
     -   [NPM](https://npmjs.com/~yetnt)
 
-#### others
+## others
 
 -   202291
     -   _Improved PrimeFactorize, by removing feature that does not work._

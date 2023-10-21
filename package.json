@@ -1,6 +1,6 @@
 {
     "name": "@yetnt/ump",
-    "version": "5.0.0",
+    "version": "5.1.0",
     "description": "A very useless math package for your complex javascript projects",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

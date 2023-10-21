@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
-const i = require("./index");
-const { Volume, Area, Distance, Data } = require("./index");
+const i = require("../dist/index");
+const { Volume, Area, Distance, Data } = require("../dist/index");
 const expect = require("expect.js");
 
 describe("Divide In Ratio", function () {
@@ -161,8 +161,8 @@ describe("Patterns", function () {
                 expect(i.LinearPattern).to.be.an("object");
             });
             it("should find Nth term of pattern 10, 30, 50", function () {
-                var ans = i.LinearPattern.findN(10, 30, 50);
-                expect(ans).to.be.eql("10 + (n - 1) * 20");
+                var ans = i.LinearPattern.findNthTerm(10, 30, 50);
+                expect(ans.formula).to.be.eql("10 + (n - 1) * 20");
             });
             it("should find term number 3", function () {
                 var ans = i.LinearPattern.findTerm(3, 20, 10);
@@ -176,8 +176,8 @@ describe("Patterns", function () {
                 expect(i.GeometricPattern).to.be.an("object");
             });
             it("should find Nth term of pattern 1, 4, 16", function () {
-                let ans = i.GeometricPattern.findN(1, 4, 16);
-                expect(ans).to.be.eql("1 * 4^(n - 1)");
+                let ans = i.GeometricPattern.findNthTerm(1, 4, 16);
+                expect(ans.formula).to.be.eql("1 * 4^(n - 1)");
             });
             it("should find term number 3", function () {
                 let ans = i.GeometricPattern.findTerm(3, 1, 4);
@@ -196,6 +196,16 @@ describe("Greatest Common Divisor", function () {
             let ans = i.gcd(56, 24);
             expect(ans).to.be.eql(8);
         });
+    });
+});
+
+describe("Calculate", function () {
+    it("should expose a function", function () {
+        expect(i.calculate).to.be.a("function");
+    });
+    it("should calculate 2^(2 + (2/2)) = 8", function () {
+        let ans = i.calculate("2^(2+(2/2))");
+        expect(ans).to.be.eql(8);
     });
 });
 

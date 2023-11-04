@@ -47,6 +47,7 @@
     },
     "homepage": "https://github.com/Yetity/ump#readme",
     "devDependencies": {
+        "@types/node": "^20.8.10",
         "@typescript-eslint/eslint-plugin": "^5.59.8",
         "@typescript-eslint/parser": "^5.59.8",
         "eslint": "^8.42.0",

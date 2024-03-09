@@ -168,6 +168,10 @@ describe("Patterns", function () {
                 var ans = i.LinearPattern.findTerm(3, 20, 10);
                 expect(ans).to.be.eql(50);
             });
+            it("should the next 5 terms (starting from Tn = 10)", function () {
+                var ans = i.LinearPattern.findTerms(10, 15, 4, 9);
+                expect(ans).to.be.eql([45, 49, 53, 57, 61, 65]);
+            });
         });
     });
     describe("Geometric Patterns", function () {
@@ -182,6 +186,29 @@ describe("Patterns", function () {
             it("should find term number 3", function () {
                 let ans = i.GeometricPattern.findTerm(3, 1, 4);
                 expect(ans).to.be.eql(16);
+            });
+            it("should the next 5 terms (starting from Tn = 10)", function () {
+                var ans = i.GeometricPattern.findTerms(10, 15, 4, 2);
+                expect(ans).to.be.eql([2048, 4096, 8192, 16384, 32768, 65536]);
+            });
+        });
+    });
+    describe("Quadratic Patterns", function () {
+        describe("#QuadraticPattern", function () {
+            it("should expose an object", function () {
+                expect(i.QuadraticPattern).to.be.an("object");
+            });
+            it("should find Nth term of pattern 1, 4, 16", function () {
+                let ans = i.QuadraticPattern.findNthTerm(1, 20, 65);
+                expect(ans.formula).to.be.eql("(13n^2) + (-20n) + 8");
+            });
+            it("should find term number 3", function () {
+                let ans = i.QuadraticPattern.findTerm(3, 1, 4, 90);
+                expect(ans).to.be.eql(111);
+            });
+            it("should the next 5 terms (starting from Tn = 10)", function () {
+                var ans = i.QuadraticPattern.findTerms(10, 15, 4, 2, 8);
+                expect(ans).to.be.eql([428, 514, 608, 710, 820, 938]);
             });
         });
     });

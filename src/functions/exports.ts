@@ -10,6 +10,8 @@ import lpOBJ from "./LinearPattern";
 export const LinearPattern = lpOBJ;
 import gpOBJ from "./GeometricPattern";
 export const GeometricPattern = gpOBJ;
+import qpOBJ from "./QuadraticPattern";
+export const QuadraticPattern = qpOBJ;
 
 export * from "./mathEval";
 

@@ -32,12 +32,12 @@ function findTerms(
     b: number,
     c: number
 ): number[] {
-    let o = 0;
-    let ans: number[] = [];
-    while (o != nn) {
+    let termIndex = n;
+    const ans: number[] = [];
+    while (termIndex != nn + 1) {
         ans.push(a * Math.pow(n, 2) + b * n + c);
         n++;
-        o++;
+        termIndex++;
     }
     return ans;
 }

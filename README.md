@@ -163,16 +163,18 @@ Convert.data(1, Data.Terabyte, Data.Bit); //8000000000000
 
 ## Pattterns
 
+The functions stay mostly the same for all the pattern stuff, just with different parameters depending on the pattern.
+
 ### Linear Patterns
 
-#### `findNthTerm()`
+#### `findNthTerm`
 
 -   `num1`: The first number in the sequence
 -   `num2`: The second number in the sequence
 -   `num3`: The third number in the sequence
 -   `returnSimplified`**(optional)**: Return the simplified formula of **Tn = dn+c** rather than **Tn = a + (n - 1) \* d**
 
-#### `findTerm()`
+#### `findTerm`
 
 Find the a term in the sequence.
 
@@ -194,9 +196,25 @@ console.log(nthTerm); // { c: 10, d: 10, formula: '10 + (n - 1) * 10' }
 LinearPattern.findTerm(90, nthTerm.d, nthTerm.c);
 ```
 
+#### `findTerms`
+
+Returns an array of the pattern starting at term `n` and ending at term `nn`
+
+-   `n`: The term to start at
+-   `nn`: The term to end at
+-   `d`: The difference
+-   `a`: First number in sequence. The formula for this is **Tn = a + (n - 1) \* d**. If you prefer to use **Tn = dn+c**, then `a` is `c`
+
+```js
+const { LinearPattern } = require("@yetnt/umo");
+
+const a = LinearPattern.findTerms(1, 10, 1, 1);
+console.log(a); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
 ### Geometric Patterns
 
-#### `findNthTerm()`
+#### `findNthTerm`
 
 -   `num1`: The first number in the sequence
 -   `num2`: The second number in the sequence
@@ -217,6 +235,65 @@ let nthTerm = GeometricPattern.findNthTerm(2, 4, 8);
 console.log(nthTerm); // { a: 2, r: 2, formula: '2 * 2^(n - 1)' }
 
 GeometricPattern.findTerm(20, nthTerm.a, nthTerm.r); // 1048576
+```
+
+#### `findTerms`
+
+Returns an array of the pattern starting at term `n` and ending at term `nn`
+
+-   `n`: The term to start at
+-   `nn`: The term to end at
+-   `a`: The first term
+-   `r`: Constant Ratio
+
+```js
+const { GeometricPattern } = require("@yetnt/ump");
+
+const a = GeometricPattern.findTerms(1, 10, 1, 2);
+console.log(a); // [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+```
+
+### Quadratic Patterns
+
+#### `findNthTerm`
+
+-   `num1`: The first number in the sequence
+-   `num2`: The second number in the sequence
+-   `num3`: The third number in the sequence
+
+#### `findTerm`
+
+Find a term in the sequence
+
+-   `n`: The term number
+-   `a`: Quadratic coefficient (_`a`n² + bn + c_)
+-   `b`: Linear coefficient (_an² + `b`n + c_)
+-   `c`: Constant term / y-intercept (_an² + bn + `c`_)
+
+```js
+const { QuadraticPattern } = require("@yetnt/ump");
+
+let nthTerm = QuadraticPattern.findNthTerm(139, 184, 235);
+console.log(nthTerm); // { a: 3, b: 36, c: 100, formula: '(3n^2) + (36n) + 100' }
+
+QuadraticPattern.findTerm(20, nthTerm.a, nthTerm.b, nthTerm.c); // 2020
+```
+
+#### `findTerms`
+
+Returns an array of the pattern starting at term `n` and ending at term `nn`
+
+-   `n`: The term to start at
+-   `nn`: The term to end at
+-   `a`: Quadratic coefficient (_`a`n² + bn + c_)
+-   `b`: Linear coefficient (_an² + `b`n + c_)
+-   `c`: Constant term / y-intercept (_an² + bn + `c`_)
+
+```js
+const { QuadraticPattern } = require("@yetnt/ump");
+
+const a = QuadraticPattern.findTerms(1, 10, 1, 2, 7);
+console.log(a); // [10, 15, 22, 31, 42, 55, 70, 87, 106, 127]
 ```
 
 ## `gcd`

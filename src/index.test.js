@@ -319,3 +319,116 @@ describe("Enums", function () {
         });
     });
 });
+
+describe("Analytical Geometry", function () {
+    describe("#Point", function () {
+        it("should be a class (well function)", function () {
+            expect(i.Point).to.be.a("function");
+        });
+        let a = new i.Point(10, 23);
+        it("should have the right x and y values", function () {
+            expect(a.x).to.be(10);
+            expect(a.y).to.be(23);
+        });
+    });
+    describe("#Line", function () {
+        let a = new i.Point(1, 1);
+        let b = new i.Point(-1, -1);
+        let line1 = new i.Line(a, b);
+        let line2 = new i.Line(new i.Point(0, 0), new i.Point(-1, 1)); // perpendicular to line 1
+        let line3 = new i.Line(new i.Point(2, 0), new i.Point(0, 2)); // parallel to line2
+        describe("Class", function () {
+            it("should be a class (Well function)", function () {
+                expect(i.Line).to.be.a("function");
+            });
+            it("should correctly place the points in the properties (1;1) and (-1;-1)", function () {
+                expect(JSON.stringify(line1.start)).to.be(JSON.stringify(a));
+                expect(JSON.stringify(line1.end)).to.be(JSON.stringify(b));
+            });
+            it("should identify the correct midpoint (0; 0)", function () {
+                expect(JSON.stringify(line1.midpoint)).to.be(
+                    JSON.stringify(new i.Point(0, 0))
+                );
+            });
+            it("should correctly get the slope of the line (1)", function () {
+                expect(line1.gradient).to.be(1);
+            });
+        });
+        describe("Static methods", function () {
+            describe("find the missing ? coordinate from the gradient", function () {
+                describe("should find ? to be 2 | m = -1, point 1 = (2;0), point 2 = (0;?)", function () {
+                    let z = i.Line.findPtFromGradient(line3.start, -1, 0);
+
+                    it("should have the correct point stored in fResult", function () {
+                        expect(JSON.stringify(z.pt)).to.be(
+                            JSON.stringify(line3.end)
+                        );
+                    });
+                    it("should have the correct line stored in fResult", function () {
+                        expect(JSON.stringify(z.line)).to.be(
+                            JSON.stringify(line3)
+                        );
+                    });
+                });
+                describe("should find ? to be 0 | m = -1, point 1 = (2;0), point 2 = (?;2)", function () {
+                    let z = i.Line.findPtFromGradient(
+                        line3.start,
+                        -1,
+                        undefined,
+                        2
+                    );
+
+                    it("should have the correct point stored in fResult", function () {
+                        expect(JSON.stringify(z.pt)).to.be(
+                            JSON.stringify(line3.end)
+                        );
+                    });
+                    it("should have the correct line stored in fResult", function () {
+                        expect(JSON.stringify(z.line)).to.be(
+                            JSON.stringify(line3)
+                        );
+                    });
+                });
+            });
+            describe("find the missing ? coordinate from the midpoint", function () {
+                describe("should find ? to be 2 | midpoint = (1;1), point 1 = (2;0), point 2 = (0;?)", function () {
+                    let z = i.Line.findPtFromMidpt(
+                        line3.start,
+                        new i.Point(1, 1),
+                        0
+                    );
+
+                    it("should have the correct point stored in fResult", function () {
+                        expect(JSON.stringify(z.pt)).to.be(
+                            JSON.stringify(line3.end)
+                        );
+                    });
+                    it("should have the correct line stored in fResult", function () {
+                        expect(JSON.stringify(z.line)).to.be(
+                            JSON.stringify(line3)
+                        );
+                    });
+                });
+                describe("should find ? to be 0 | midpoint = (1;1), point 1 = (2;0), point 2 = (?;2)", function () {
+                    let z = i.Line.findPtFromMidpt(
+                        line3.start,
+                        new i.Point(1, 1),
+                        undefined,
+                        2
+                    );
+
+                    it("should have the correct point stored in fResult", function () {
+                        expect(JSON.stringify(z.pt)).to.be(
+                            JSON.stringify(line3.end)
+                        );
+                    });
+                    it("should have the correct line stored in fResult", function () {
+                        expect(JSON.stringify(z.line)).to.be(
+                            JSON.stringify(line3)
+                        );
+                    });
+                });
+            });
+        });
+    });
+});

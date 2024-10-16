@@ -1,6 +1,8 @@
+-- TO DO: Update read me
+
 # Useless Math Package
 
-I mean.. Do you really need this soon to be multi mathemetically functioning package? (if that even makes sense)
+I mean.. Do you really need this?
 
 # Installation
 
@@ -10,11 +12,9 @@ sudo npm install @yetnt/ump
 yarn add @yetnt/ump
 ```
 
-> _It's suggested you don't install from github itself as I'm consistently commiting to the project you'll need to update everyday and because some code breaks because i'm editing it so just get it from npm :+1:_
-
 ```js
-const Ump = require("@yetnt/ump");
-Ump.primeFactorize();
+const ump = require("@yetnt/ump");
+ump.primeFactorize();
 ```
 
 or

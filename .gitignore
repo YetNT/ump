@@ -1,5 +1,7 @@
 # testing stuff
 testing/
+.npmrc
+
 
 # Logs
 logs

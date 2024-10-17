@@ -50,6 +50,14 @@ class Line {
      * The midpoint of the line, updates when you update either start of end property.
      */
     midpoint: Point;
+    /**
+     * Y intercept.
+     */
+    yIntercept: number;
+    /**
+     * X intercept.
+     */
+    xIntercept: number;
 
     /**
      * Initalize the line with 2 points.
@@ -95,6 +103,12 @@ class Line {
             (this._start.x + this._end.x) / 2,
             (this._start.y + this._end.y) / 2
         );
+
+        this.yIntercept = this.start.y - this.gradient * this.start.x;
+        this.xIntercept =
+            this.yIntercept === 0
+                ? this.start.x
+                : -this.yIntercept / this.gradient;
     }
 
     /**
@@ -206,4 +220,32 @@ function isParallel(l1: Line, l2: Line) {
     return l1.gradient == l2.gradient;
 }
 
-export { Point, fResult, Line, isParallel, isPerpendicular };
+/**
+ * Function that returns the intersection point of two lines.
+ * @param l1 Line 1
+ * @param l2 Line 2
+ * @returns
+ */
+function intersectionPt(l1: Line, l2: Line): Point | undefined {
+    if (isParallel(l1, l2)) {
+        return undefined; // Lines are parallel, no intersection
+    }
+    // if we have line y=mx+c and y=mx+c
+    // when their equal essential m1x+c1 = m2x + c2
+    // c can be found by looking at what y value is hit when x is 0
+    // m1x + c1 - c2 = m2x
+    // c1 - c2 = m2x - m1x
+    // c1 - c2 = x (m2 - m1)
+    // (c1-c2)/(m2-m1) = x.
+    // Then when x is found, input it into the findPtFromGradient to find y.
+
+    // Calculate x using the formula for the intersection of two lines
+    const x = (l2.yIntercept - l1.yIntercept) / (l1.gradient - l2.gradient);
+
+    // Use either line to calculate the y value (I'll use line 1)
+    const y = l1.gradient * x + l1.yIntercept;
+
+    return new Point(x, y);
+}
+
+export { Point, fResult, Line, isParallel, isPerpendicular, intersectionPt };

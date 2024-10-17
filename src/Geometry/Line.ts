@@ -1,4 +1,4 @@
-import { Point, fResult, BaseLine } from ".";
+import { Point, fResult, BaseLine } from "./base";
 
 /**
  * A line, what else.
@@ -40,10 +40,10 @@ export default class Line extends BaseLine {
         } else if (typeof param1 == "number" && typeof param2 == "number") {
             let m = param1;
             let c = param2;
-            this.calc(m, c);
 
             this._start = new Point((0 - c) / m, 0);
             this._end = new Point(0, c);
+            this.calc(m, c);
         }
     }
 
@@ -71,9 +71,41 @@ export default class Line extends BaseLine {
         return this._end;
     }
 
+    /**
+     * Checks if the given points lie on this line.
+     *
+     * @param pts - The points to check.
+     * @returns `true` if all the points lie on this line, `false` otherwise.
+     *
+     * @remarks
+     * This method uses the equation of the line (y = mx + c) to check if the points lie on the line.
+     * It iterates through each point and checks if the y-coordinate of the point equals the calculated y-coordinate using the point's x-coordinate and the gradient and y-intercept of the line.
+     * If all points satisfy this condition, the method returns `true`; otherwise, it returns `false`.
+     */
+    includes(...pts: Point[]): boolean {
+        return pts.some((pt) => {
+            return this.gradient * pt.x + this.yIntercept == pt.y;
+        });
+    }
+
+    /**
+     * Calculates the gradient and midpoint of the line based on the provided start and end points, or gradient and y-intercept.
+     *
+     * @param m - Optional parameter representing the gradient of the line. If provided, it will be used to calculate the gradient.
+     * @param c - Optional parameter representing the y-intercept of the line. If provided, it will be used to calculate the gradient.
+     *
+     * @returns
+     *
+     * @remarks
+     * If both `m` and `c` are provided, the method will use `m` to calculate the gradient.
+     * If neither `m` nor `c` are provided, the method will calculate the gradient using the start and end points of the line.
+     * The midpoint of the line is also calculated and stored in the `midpoint` property.
+     */
     private calc(m?: number, c?: number) {
         this.gradient =
-            m || this._end.y == this._start.y // gradient will be undefined.
+            m != undefined
+                ? m
+                : this._end.y == this._start.y // gradient will be undefined.
                 ? undefined
                 : (this._end.x - this._start.x) / (this._end.y - this._start.y);
         this.midpoint = new Point(
@@ -81,7 +113,8 @@ export default class Line extends BaseLine {
             (this._start.y + this._end.y) / 2
         );
 
-        this.yIntercept = c || this.start.y - this.gradient * this.start.x;
+        this.yIntercept =
+            c != undefined ? c : this.start.y - this.gradient * this.start.x;
         this.xIntercept =
             this.yIntercept === 0
                 ? this.start.x
@@ -89,12 +122,14 @@ export default class Line extends BaseLine {
     }
 
     /**
-     * Function that finds an unknown coordinate from the given point and a given midpoint.
-     * @param givenPt Given point
-     * @param midpt Given midpoint
-     * @param givenX Given X (If you're looking for y)
-     * @param givenY Given Y (if you're looking for x, if you do enter a value make givenX = undefined)
-     * @returns
+     * A static method that finds a new point based on a given point, midpoint, and either the x or y coordinate.
+     * It calculates the missing coordinate using the midpoint and the given point.
+     *
+     * @param givenPt - The known point on the line.
+     * @param midpt - The midpoint of the line.
+     * @param givenX - The x-coordinate of the new point. If not provided, the method will calculate it.
+     * @param givenY - The y-coordinate of the new point. If not provided, the method will calculate it.
+     * @returns An object containing the new point and the line formed by the given point and the new point.
      */
     static findPtFromMidpt(
         givenPt: Point,
@@ -125,12 +160,14 @@ export default class Line extends BaseLine {
     }
 
     /**
-     * Function that finds an unknown coordinate from the given point and a given gradient.
-     * @param givenPt Given Point
-     * @param gradient Given Gradient
-     * @param givenX Given X (If you're looking for y)
-     * @param givenY Given Y (if you're looking for x, if you do enter a value make givenX = undefined)
-     * @returns
+     * A static method that finds a new point based on a given point, gradient, and either the x or y coordinate.
+     * It calculates the missing coordinate using the given gradient and the given point.
+     *
+     * @param givenPt - The known point on the line.
+     * @param gradient - The gradient of the line.
+     * @param givenX - The x-coordinate of the new point. If not provided, the method will calculate it.
+     * @param givenY - The y-coordinate of the new point. If not provided, the method will calculate it.
+     * @returns An object containing the new point and the line formed by the given point and the new point.
      */
     static findPtFromGradient(
         givenPt: Point,

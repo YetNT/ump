@@ -1,10 +1,9 @@
-import { isParallel, isPerpendicular, intersectionPt } from "./funcs";
 import Line from "./Line";
 
 /**
  * Represents a single point in this package.
  */
-class Point {
+export class Point {
     /**
      * X Coordinate
      */
@@ -28,7 +27,7 @@ class Point {
 /**
  * Interface that is returned by findPtFromMidpt and findPtFromGradient
  */
-interface fResult {
+export interface fResult {
     /**
      * The entire line this makes
      */
@@ -42,7 +41,7 @@ interface fResult {
 /**
  * Where all things are extended from.
  */
-class BaseLine {
+export class BaseLine {
     /**
      * Y intercept.
      */
@@ -52,13 +51,3 @@ class BaseLine {
      */
     xIntercept: number;
 }
-
-export {
-    Point,
-    fResult,
-    Line,
-    isParallel,
-    isPerpendicular,
-    intersectionPt,
-    BaseLine,
-};

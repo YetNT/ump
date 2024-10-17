@@ -2,3 +2,5 @@
 
 export * from "./functions/exports";
 export * from "./libmath/enums";
+
+export * from "./Geometry";

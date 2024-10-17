@@ -17,5 +17,3 @@ export * from "./mathEval";
 
 import stats from "./Stats/exports";
 export const Stats = stats;
-
-export * from "./Geometry";

@@ -1,45 +1,9 @@
-/**
- * Represents a single point in this package.
- */
-class Point {
-    /**
-     * X Coordinate
-     */
-    x: number;
-    /**
-     * Y Coordinate
-     */
-    y: number;
-
-    /**
-     * initalize the point.
-     * @param x X Coordinate
-     * @param y Y Coordinate
-     */
-    constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-    }
-}
-
-/**
- * Interface that is returned by findPtFromMidpt and findPtFromGradient
- */
-interface fResult {
-    /**
-     * The entire line this makes
-     */
-    line: Line;
-    /**
-     * The pt which you were looking for (contains the x/y value that was unknown.)
-     */
-    pt: Point;
-}
+import { Point, fResult, BaseLine } from ".";
 
 /**
  * A line, what else.
  */
-class Line {
+export default class Line extends BaseLine {
     private _start: Point;
     private _end: Point;
     /**
@@ -50,24 +14,37 @@ class Line {
      * The midpoint of the line, updates when you update either start of end property.
      */
     midpoint: Point;
-    /**
-     * Y intercept.
-     */
-    yIntercept: number;
-    /**
-     * X intercept.
-     */
-    xIntercept: number;
 
     /**
      * Initalize the line with 2 points.
      * @param a Point a (start)
      * @param b Point b (end)
      */
-    constructor(a: Point, b: Point) {
-        this._start = a;
-        this._end = b;
-        this.calc();
+    constructor(a: Point, b: Point);
+
+    /**
+     * Initialize the line using y = mx + c equation.
+     * @param m Gradient
+     * @param c Y-intercept.
+     */
+    constructor(m: number, c: number);
+
+    constructor(param1: Point | number, param2: Point | number) {
+        super();
+        if (param1 instanceof Point && param2 instanceof Point) {
+            let a = param1;
+            let b = param2;
+            this._start = a;
+            this._end = b;
+            this.calc();
+        } else if (typeof param1 == "number" && typeof param2 == "number") {
+            let m = param1;
+            let c = param2;
+            this.calc(m, c);
+
+            this._start = new Point((0 - c) / m, 0);
+            this._end = new Point(0, c);
+        }
     }
 
     set start(pt: Point) {
@@ -94,9 +71,9 @@ class Line {
         return this._end;
     }
 
-    private calc() {
+    private calc(m?: number, c?: number) {
         this.gradient =
-            this._end.y == this._start.y // gradient will be undefined.
+            m || this._end.y == this._start.y // gradient will be undefined.
                 ? undefined
                 : (this._end.x - this._start.x) / (this._end.y - this._start.y);
         this.midpoint = new Point(
@@ -104,7 +81,7 @@ class Line {
             (this._start.y + this._end.y) / 2
         );
 
-        this.yIntercept = this.start.y - this.gradient * this.start.x;
+        this.yIntercept = c || this.start.y - this.gradient * this.start.x;
         this.xIntercept =
             this.yIntercept === 0
                 ? this.start.x
@@ -190,62 +167,3 @@ class Line {
         }
     }
 }
-/**
- * Are the lines perpendicular? (Their gradients multiply to -1)
- *
- * An exception for horizontal and vertical lines: where they dont follow m1 * m2 = -1, but by definiton are perpendicular.
- * @param l1 Line 1
- * @param l2 Line 2
- * @returns
- */
-function isPerpendicular(l1: Line, l2: Line) {
-    // If one line has an undefined gradient and the other has a gradient of 0
-    if (
-        (l1.gradient === undefined && l2.gradient === 0) ||
-        (l1.gradient === 0 && l2.gradient === undefined)
-    ) {
-        return true; // These lines are perpendicular (horizontal & vertical)
-    }
-    // Standard perpendicularity check for non-horizontal/vertical lines
-    return l1.gradient * l2.gradient === -1;
-}
-
-/**
- * Are 2 lines parallel? (Their gradients equal.)
- * @param l1 Line 1
- * @param l2 Line 2
- * @returns
- */
-function isParallel(l1: Line, l2: Line) {
-    return l1.gradient == l2.gradient;
-}
-
-/**
- * Function that returns the intersection point of two lines.
- * @param l1 Line 1
- * @param l2 Line 2
- * @returns
- */
-function intersectionPt(l1: Line, l2: Line): Point | undefined {
-    if (isParallel(l1, l2)) {
-        return undefined; // Lines are parallel, no intersection
-    }
-    // if we have line y=mx+c and y=mx+c
-    // when their equal essential m1x+c1 = m2x + c2
-    // c can be found by looking at what y value is hit when x is 0
-    // m1x + c1 - c2 = m2x
-    // c1 - c2 = m2x - m1x
-    // c1 - c2 = x (m2 - m1)
-    // (c1-c2)/(m2-m1) = x.
-    // Then when x is found, input it into the findPtFromGradient to find y.
-
-    // Calculate x using the formula for the intersection of two lines
-    const x = (l2.yIntercept - l1.yIntercept) / (l1.gradient - l2.gradient);
-
-    // Use either line to calculate the y value (I'll use line 1)
-    const y = l1.gradient * x + l1.yIntercept;
-
-    return new Point(x, y);
-}
-
-export { Point, fResult, Line, isParallel, isPerpendicular, intersectionPt };
